@@ -1,0 +1,225 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FireRed Legacy — Walkthrough</title><style>
+:root{--bg:#f5f5f7;--ink:#1d1d1f;--sub:#6e6e73}
+*{box-sizing:border-box}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+     background:var(--bg);color:var(--ink);line-height:1.5}
+nav{position:sticky;top:0;z-index:50;background:rgba(251,251,253,.85);backdrop-filter:blur(18px);
+    border-bottom:1px solid rgba(0,0,0,.08);padding:11px 20px;display:flex;gap:22px;font-size:14px;
+    overflow-x:auto;white-space:nowrap}
+nav a{color:#333;text-decoration:none}nav a:hover{color:#0071e3}
+nav b{color:#f09819}
+.wrap{max-width:1120px;margin:0 auto;padding:26px 20px 80px}
+h1{font-size:34px;letter-spacing:-.02em;margin:52px 0 4px;padding-top:10px}
+h2{font-size:22px;margin:34px 0 14px;color:#333}
+p.lead{color:var(--sub);max-width:820px;margin:6px 0 8px}
+.fights{display:grid;gap:18px;grid-template-columns:repeat(auto-fill,minmax(340px,1fr))}
+.fight{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.07)}
+.fhead{background:var(--c);color:#fff;padding:12px 16px;position:relative}
+.ftitle{font-size:20px;font-weight:800}
+.fsub{font-size:12.5px;opacity:.92}
+.ftype{position:absolute;top:12px;right:14px;font-size:11.5px;font-weight:700;
+       padding:3px 9px;border-radius:999px}
+.team{padding:12px;display:grid;gap:10px}
+.mon{background:#faf9fc;border:1px solid #eee;border-radius:12px;padding:9px 11px}
+.mtop{display:flex;gap:10px;align-items:center}
+.mtop img{width:56px;height:56px;image-rendering:pixelated;flex:none}
+.mname{font-weight:700;font-size:15px}.lv{color:#888;font-weight:600;font-size:13px}
+.mchips{margin:2px 0}
+.chip{display:inline-block;color:#fff;font-size:10.5px;font-weight:700;padding:2px 8px;
+      border-radius:999px;margin-right:3px;text-transform:uppercase;letter-spacing:.02em}
+.mmeta{font-size:12px;color:#555}
+.moves{display:grid;grid-template-columns:1fr 1fr;gap:5px;margin-top:8px}
+.mv{display:flex;justify-content:space-between;align-items:center;background:#fff;
+    border:1px solid #ececf0;border-radius:7px;padding:3px 4px 3px 8px;font-size:12px}
+.mvn{font-weight:600}
+.mvt{color:#fff;font-size:9.5px;font-weight:700;padding:2px 6px;border-radius:5px;text-transform:uppercase}
+details{background:#fff;border:1px solid #e6e6ea;border-radius:10px;margin:7px 0;padding:2px 14px}
+summary{cursor:pointer;padding:9px 0;font-weight:600}
+h3.subtier{font-size:15px;margin:22px 0 4px;color:#444;border-bottom:2px solid #eee;padding-bottom:4px}
+.n{color:#999;font-weight:400;font-size:.85em}
+table{border-collapse:collapse;width:100%;margin:6px 0 10px;font-size:13.5px}
+td,th{border-bottom:1px solid #f0f0f2;padding:5px 8px;text-align:left}
+th{background:#f3f3f5}
+td:first-child{white-space:nowrap;color:#666}
+img.ti{width:26px;height:26px;vertical-align:middle;image-rendering:pixelated;margin-right:5px}
+.maplay{max-width:100%;width:auto;max-height:440px;image-rendering:pixelated;background:#1e1e28;
+        border:1px solid #e6e6ea;border-radius:8px;margin:8px 0;display:block;cursor:zoom-in}
+#lightbox{position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.92);display:none;
+          overflow:auto;cursor:zoom-out;text-align:center;white-space:nowrap}
+#lightbox.open{display:block}
+#lightbox::before{content:"";display:inline-block;height:100vh;vertical-align:middle}
+#lightbox img{display:inline-block;vertical-align:middle;margin:20px;white-space:normal;
+              image-rendering:pixelated;background:#1e1e28;cursor:zoom-in;border-radius:4px;
+              box-shadow:0 8px 50px rgba(0,0,0,.55)}
+#lightbox .lbclose{position:fixed;top:6px;right:20px;color:#fff;font-size:38px;line-height:1;
+                   cursor:pointer;opacity:.85;font-weight:300;z-index:201}
+#lightbox .lbhint{position:fixed;bottom:14px;left:0;right:0;text-align:center;color:#dcdcdc;
+                  font-size:13px;pointer-events:none;white-space:normal}
+.mapfilter{width:100%;font-size:16px;padding:12px 14px;border:1px solid #d9d9de;border-radius:10px;
+           outline:none;background:#fbfbfd;margin:6px 0 16px}
+.mapfilter:focus{border-color:#0071e3;box-shadow:0 0 0 3px rgba(0,113,227,.15)}
+.mapitems{margin:8px 0 6px}.mapitems>b{font-size:13px;color:#333}
+.pgroup{display:flex;gap:8px;align-items:baseline;font-size:13.5px;margin:4px 0;padding:3px 0;
+        border-top:1px solid #f2f2f4}
+.plabel{flex:none;width:88px;color:#8a8f98;font-weight:700;font-size:11px;text-transform:uppercase;
+        letter-spacing:.02em;padding-top:1px}
+/* hover-to-locate: point marker (trainers/items) + terrain overlay (Pokémon) */
+/* the map sticks to the top while you scroll the lists below, so a highlight is
+   always visible even on big maps */
+.mapsticky{position:sticky;top:50px;z-index:5;background:var(--bg);padding:5px 0 7px;margin:4px 0;
+           box-shadow:0 7px 7px -7px rgba(0,0,0,.25)}
+.mapwrap{position:relative;display:inline-block;line-height:0;max-width:100%}
+.mapwrap .maplay{margin:0}
+/* per-trainer team dropdown (click a trainer to see their team, like a gym leader) */
+.trlist{display:flex;flex-direction:column;gap:3px;margin-top:2px}
+.trdet>summary{cursor:pointer;list-style:none;width:fit-content;max-width:100%}
+.trdet>summary::-webkit-details-marker{display:none}
+.trdet>summary::after{content:"B8";color:#b7b7bf;font-size:10px;margin-left:2px}
+.trdet[open]>summary::after{content:"BE"}
+.trdet[open]>summary{background:#fff3c4;border-color:#ffcf33;color:#5a4a00}
+.trdet .team{margin:6px 0 10px 6px}
+.lvmoves{font-size:12px;color:#9a9aa2;font-style:italic;padding:7px 2px 3px}
+.mapterr{position:absolute;left:0;top:0;width:100%;height:100%;image-rendering:pixelated;
+         pointer-events:none;display:none;border-radius:8px;animation:terrflash .8s ease-in-out infinite}
+@keyframes terrflash{0%,100%{opacity:1}50%{opacity:.15}}
+.maphi{position:absolute;width:24px;height:24px;margin:0;border:3px solid #ffcf33;border-radius:50%;
+       background:rgba(255,207,51,.28);box-shadow:0 0 0 2px rgba(0,0,0,.55),0 0 14px 3px #ffcf33;
+       pointer-events:none;display:none;will-change:transform;animation:maphipulse .9s ease-in-out infinite}
+@keyframes maphipulse{0%,100%{transform:translate(-50%,-50%) scale(1)}
+                      50%{transform:translate(-50%,-50%) scale(1.35)}}
+.kchips{display:flex;flex-wrap:wrap;gap:5px}
+.hitem{background:#f0f0f3;border:1px solid #e4e4ea;border-radius:999px;padding:2px 9px;cursor:pointer;
+       display:inline-flex;align-items:center;gap:4px;white-space:nowrap;line-height:1.4}
+.hitem:hover{background:#fff3c4;border-color:#ffcf33;color:#5a4a00}
+.hitem.sel{background:#ffdf85;border-color:#e0a800;color:#5a4a00;font-weight:500}
+.hitem .ti{font-size:14px;color:#7a7a82}
+tr.wr{cursor:pointer}tr.wr:hover td{background:#fff8e2}
+tr.wr.sel td{background:#ffe6a6}
+.clkrow{margin:1px 0}
+/* click-to-open info panels (trainer team / item text / Pokédex peek) */
+.selinfo{display:none}
+.selinfo.open{display:block}
+tr.selinfo.open{display:table-row}
+.selinfo>.team{margin:6px 0 10px 6px}
+.iteminfo{flex-basis:100%;width:100%;font-size:13px;color:#555;background:#faf7ee;
+          border:1px solid #efe6c8;border-radius:8px;padding:7px 11px;margin:2px 0 4px}
+.dexpeek{display:flex;gap:12px;align-items:center;padding:8px 4px;background:#fafafb;border-radius:8px}
+.dexpeek>img{width:56px;height:56px;image-rendering:pixelated;flex:none}
+.dpbody{flex:1;min-width:0}.dpchips{margin-bottom:3px}
+.dpab{font-size:13px;color:#555;margin-bottom:5px}
+.dpstats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2px 16px}
+.pkstat{display:grid;grid-template-columns:30px 1fr 26px;align-items:center;gap:6px;font-size:11.5px}
+.pkstat b{color:#888;font-weight:600}.pkstat i{text-align:right;font-style:normal}
+.pkbar{background:#e9e9ee;border-radius:4px;height:6px;overflow:hidden}
+.pkbar>span{display:block;height:100%;background:#63bc5a}
+.card{background:#fff;border-radius:14px;padding:8px 26px;box-shadow:0 2px 12px rgba(0,0,0,.06)}
+ul.big li{margin:12px 0;font-size:15.5px}
+.hero{background:#000;color:#f5f5f7;text-align:center;padding:60px 20px}
+.hero h1{border:0;font-size:clamp(40px,7vw,72px);font-weight:800;margin:0;padding:0}
+.hero .fire{background:linear-gradient(90deg,#ff512f,#f09819,#ff512f);-webkit-background-clip:text;
+            background-clip:text;color:transparent}
+.hero p{color:#a1a1a6;font-size:18px;margin-top:12px}
+#findbox,#ibox{width:100%;font-size:16px;padding:12px 14px;border:1px solid #d9d9de;border-radius:10px;
+         outline:none;background:#fbfbfd}
+#findbox:focus,#ibox:focus{border-color:#0071e3;box-shadow:0 0 0 3px rgba(0,113,227,.15)}
+.findout{margin-top:14px;display:grid;gap:12px}
+.findout .hint{color:var(--sub);margin:6px 2px}
+.findmon{border:1px solid #ececf0;border-radius:12px;overflow:hidden}
+.findhead{display:flex;align-items:center;gap:9px;background:#f3f3f5;padding:8px 12px;font-size:16px}
+.findhead b{font-weight:700}
+.findhead .n{margin-left:auto}
+.ichip{font-size:11px;font-weight:700;color:#5b6270;background:#e7e9ee;border-radius:999px;
+       padding:2px 9px;text-transform:uppercase;letter-spacing:.02em}
+.findmon table{margin:0}
+.findmon td:first-child{white-space:normal;color:var(--ink);font-weight:600}
+/* trainer portraits on fight cards */
+.fhead{display:flex;align-items:center;gap:10px}
+.fhtext{flex:1;min-width:0}
+.fportrait{width:48px;height:48px;image-rendering:pixelated;flex:none;
+           background:rgba(255,255,255,.18);border-radius:8px}
+.ftype{top:10px}
+/* Pokédex */
+#dexbox,#mvbox{width:100%;font-size:16px;padding:12px 14px;border:1px solid #d9d9de;
+               border-radius:10px;outline:none;background:#fbfbfd}
+#dexbox:focus,#mvbox:focus{border-color:#0071e3;box-shadow:0 0 0 3px rgba(0,113,227,.15)}
+.dexgrid{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));margin-top:14px}
+.dcard{background:#fff;border-radius:14px;box-shadow:0 2px 12px rgba(0,0,0,.07);padding:12px 14px}
+.dhead{display:flex;align-items:center;gap:10px}
+.dhead img{width:52px;height:52px;image-rendering:pixelated;flex:none}
+.dtitle{flex:1;min-width:0}.dname{font-weight:800;font-size:15px}
+.dchips{margin-top:2px}
+.dbst{text-align:center;font-size:10px;color:#999;font-weight:700;line-height:1.1}
+.dbst b{display:block;font-size:16px;color:#333}
+.dmeta{font-size:12.5px;color:#555;margin:8px 0 6px}
+.stats{display:grid;gap:3px}
+.statrow{display:grid;grid-template-columns:34px 1fr 30px;align-items:center;gap:6px;font-size:11.5px}
+.statn{color:#888;font-weight:600}.statv{text-align:right;font-variant-numeric:tabular-nums}
+.statbar{background:#eee;border-radius:4px;height:7px;overflow:hidden}
+.statbar i{display:block;height:100%;border-radius:4px}
+.evo{font-size:12px;color:#0071e3;margin-top:8px}
+details.sub{margin-top:8px}details.sub summary{cursor:pointer;font-size:12.5px;font-weight:600;color:#555}
+table.mini{width:100%;font-size:12px;margin-top:4px}
+table.mini td,table.mini th{padding:3px 6px}
+table.mini td:first-child{color:#888;width:36px}
+/* Move index */
+.movetbl{border-collapse:collapse;width:100%;margin:12px 0 20px;font-size:13px}
+.movetbl th,.movetbl td{border-bottom:1px solid #eee;padding:6px 8px;text-align:left}
+.movetbl thead th{position:sticky;top:44px;background:#f3f3f5;z-index:1}
+.mvname{font-weight:600;white-space:nowrap}
+.mdesc{color:#555;font-size:12px}
+.cat-physical,.cat-special,.cat-status{color:#fff;font-size:10px;font-weight:700;
+  padding:2px 7px;border-radius:5px;white-space:nowrap}
+.cat-physical{background:#c92112}.cat-special{background:#4f5870}.cat-status{background:#8c888c}
+/* vanilla-diff highlighting */
+.chg{background:#fff4d6;border-radius:4px}
+.chg s{color:#b0a58a;font-size:11px;margin-right:2px}
+.mvchgl{display:inline-flex;align-items:center;gap:6px;margin-top:10px;font-size:13px;color:var(--sub);cursor:pointer}
+.mvchgl input{width:16px;height:16px}
+.eggmoves{font-size:12.5px;color:#555;line-height:1.7;padding:2px 0}
+/* Walkthrough */
+.walktoc{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:4px 16px;
+         margin:6px 0 22px;padding:14px 16px;background:#fafafb;border:1px solid #ececf0;border-radius:12px}
+.walktoc a{color:#0071e3;text-decoration:none;font-size:14px;padding:2px 0}
+.walktoc a:hover{text-decoration:underline}
+.wchap{scroll-margin-top:60px;margin:0 0 10px}
+.wchap h2{font-size:19px;margin:26px 0 8px;padding-bottom:6px;border-bottom:2px solid #f0f0f2}
+.wchap p{line-height:1.65;margin:8px 0}
+.walknum{line-height:1.6;margin:6px 0 6px 20px}.walknum li{margin:7px 0}
+.walklist{line-height:1.6;margin:6px 0 6px 18px}.walklist li{margin:6px 0}
+.wmaps{display:flex;flex-wrap:wrap;gap:10px;margin:10px 0 4px}
+.wmaps .wsmall{max-height:210px;margin:0}
+/* small screens */
+@media (max-width:640px){
+  nav{flex-wrap:wrap;gap:10px 14px;padding:9px 12px}
+  .hero{padding:38px 14px}
+  .wrap{padding:0 12px}
+  .walktoc{grid-template-columns:1fr}
+  .dpstats{grid-template-columns:1fr}
+  .mapsticky{position:static;box-shadow:none;padding:0}
+  td,th{padding:4px 5px;font-size:12.5px}
+  .moves{grid-template-columns:1fr}
+  .wmaps .wsmall{max-height:150px}
+}
+</style></head><body>
+<div class="hero"><h1>FireRed <span class="fire">Legacy</span></h1>
+<p>The Walkthrough — the whole journey, start to Lv 100 Champion.</p></div>
+<nav><b>FRL</b><a href="#walk">Walkthrough</a><a href="Compendium.html#trainers">Trainers</a>
+<a href="Compendium.html#rematches">Rematches</a><a href="Compendium.html#find">Find a Pokémon</a>
+<a href="Compendium.html#wild">Locations</a><a href="Compendium.html#dex">Pokédex</a>
+<a href="Compendium.html">&larr; Compendium</a><a href="FireRedLegacy_Site.html">Home</a></nav>
+<div class="wrap"><h1 id='walk'>Walkthrough</h1><p class='lead'>A start-to-finish guide to FireRed Legacy &mdash; the full Kanto journey, the Sevii Islands, and <b>all</b> of the bonus content. It highlights what Legacy changes from vanilla FireRed and links to the data sections for exact trainer positions, teams, and items. For precise spots on any map, open that map in <a href='#wild'>Locations</a> and hover or click.</p><div class='walktoc'><a href="#w-start">1 · Pallet Town — a new adventure</a><a href="#w-pewter">2 · Route 1 to Pewter City — Brock</a><a href="#w-cerulean">3 · Mt. Moon to Cerulean — Misty</a><a href="#w-vermilion">4 · Vermilion City — Lt. Surge &amp; the S.S. Anne</a><a href="#w-celadon">5 · Rock Tunnel to Celadon — Erika &amp; Team Rocket</a><a href="#w-fuchsia">6 · Pok&eacute;mon Tower to Fuchsia — Koga &amp; Janine</a><a href="#w-saffron">7 · Saffron City — Silph Co. &amp; Sabrina</a><a href="#w-cinnabar">8 · Cinnabar Island — Blaine</a><a href="#w-viridian">9 · Viridian Gym — Giovanni</a><a href="#w-league">10 · Victory Road &amp; the Elite Four</a><a href="#w-sevii">11 · The Sevii Islands</a><a href="#w-rematch">12 · Postgame — the gated rematch road</a><a href="#w-johto">13 · The Johto Isles</a><a href="#w-legends">14 · Legendary hunt</a><a href="#w-mew">15 · The Mew quest</a><a href="#w-extras">16 · Extras &amp; challenge features</a></div><section class="wchap" id="w-start"><h2>1 · Pallet Town — a new adventure</h2><div class="wmaps"><img class="maplay wsmall" loading="lazy" src="maps/PalletTown.png" alt="Pallet Town"></div><p>Leave your house and step into the grass; PROF. OAK stops you and takes you to his lab, where your <b>rival</b> is waiting. Pick your starter &mdash; FireRed Legacy keeps the classic trio, <a href="Compendium.html#kanto">Bulbasaur, Charmander, or Squirtle</a>. Your rival, however, does <b>not</b> pick a starter: Oak hands him an <b>EEVEE</b>, which he evolves into whichever Eeveelution counters your choice, so every rival fight is an uphill type match-up (Vaporeon vs. Charmander, Jolteon vs. Squirtle, Flareon vs. Bulbasaur).</p><p><b>Legacy note.</b> Before you leave, a <b>Gentleman in Pallet Town</b> hands out unlimited Rare Candy / Master Balls / Full Restores / Repels / Elixirs &mdash; the Nuzlocke &amp; challenge-run supply stand. You'll also have chosen <b>Normal</b> or <b>Hard</b> mode at the start (see <a href="#w-extras">Extras</a>). Every Pok&eacute;mon in the game is catchable, and your partner follows you around the field, HG/SS-style.</p></section><section class="wchap" id="w-pewter"><h2>2 · Route 1 to Pewter City — Brock</h2><div class="wmaps"><img class="maplay wsmall" loading="lazy" src="maps/ViridianForest.png" alt="Viridian Forest"><img class="maplay wsmall" loading="lazy" src="maps/PewterCity.png" alt="Pewter City"></div><p>Head north through <a href="Compendium.html#wild">Route 1</a> to Viridian City, where the mart clerk hands you <b>OAK'S PARCEL</b>. Deliver it back to the lab to receive the <b>Pok&eacute;dex</b> and Pok&eacute; Balls, then return north, up <a href="Compendium.html#wild">Route 2</a> into <a href="Compendium.html#wild">Viridian Forest</a> &mdash; a great early net of Bug-types and, uniquely in Legacy, <b>Pikachu</b>, which appears here as well as at the Power Plant. Emerge in <b>Pewter City</b> and take the <a href="Compendium.html#kanto">PEWTER GYM</a>.</p><p><b>Brock</b> leads with Geodude and an ace <b>Onix (Lv 12)</b> that now carries a wider movepool than vanilla &mdash; a Water/Grass starter or a caught Mankey/Nidoran makes this simple. Winning earns the <b>Boulder Badge</b> and TM Rock Tomb. Old Man's catching tutorial and the Museum are here too.</p></section><section class="wchap" id="w-cerulean"><h2>3 · Mt. Moon to Cerulean — Misty</h2><div class="wmaps"><img class="maplay wsmall" loading="lazy" src="maps/MtMoon_1F.png" alt="Mt Moon 1F"><img class="maplay wsmall" loading="lazy" src="maps/CeruleanCity.png" alt="Cerulean City"></div><p><a href="Compendium.html#wild">Route 3</a> is packed with trainers; at its end lies <a href="Compendium.html#wild">Mt. Moon</a>, home to Zubat, Geodude and the fossil choice (Helix or Dome &mdash; you can revive the other later, and Fuchsia gives you the mon from the fossil you <i>didn't</i> pick). Beat the Rocket at the exit and drop into <b>Cerulean City</b>.</p><p>The <a href="Compendium.html#kanto">CERULEAN GYM</a> is <b>Misty</b>, whose ace <b>Starmie (Lv 21)</b> hits hard &mdash; an Electric- or Grass-type is strongly recommended. Take the <b>Cascade Badge</b>, then clear <b>Nugget Bridge</b> and the Rocket to the north, and visit <b>Bill</b> on Route 25 to earn the <b>S.S. Ticket</b>. Legacy relocates the <b>Old Rod</b> to a fishing guru back in Viridian City if you want early fish.</p></section><section class="wchap" id="w-vermilion"><h2>4 · Vermilion City — Lt. Surge &amp; the S.S. Anne</h2><div class="wmaps"><img class="maplay wsmall" loading="lazy" src="maps/VermilionCity.png" alt="Vermilion City"><img class="maplay wsmall" loading="lazy" src="maps/SSAnne_Exterior.png" alt="SS Anne Exterior"></div><p>Head down <a href="Compendium.html#wild">Route 5</a> and <a href="Compendium.html#wild">Route 6</a> to <b>Vermilion City</b>. Board the <b>S.S. Anne</b>, work through its trainers and your rival, and receive <b>HM01 Cut</b> from the Captain &mdash; note that in Legacy <b>every HM move can be forgotten</b> like a normal move. Cut the tree to reach the <a href="Compendium.html#kanto">VERMILION GYM</a>. Solve the trash-can switches, then face <b>Lt. Surge</b> and his lone, brutal <b>Raichu (Lv 29)</b>; a Ground-type (Diglett from Diglett's Cave, just east on Route 11) trivializes it. Grab the <b>Thunder Badge</b>. The <b>Good Rod</b> is given here.</p></section><section class="wchap" id="w-celadon"><h2>5 · Rock Tunnel to Celadon — Erika &amp; Team Rocket</h2><div class="wmaps"><img class="maplay wsmall" loading="lazy" src="maps/RockTunnel_1F.png" alt="Rock Tunnel 1F"><img class="maplay wsmall" loading="lazy" src="maps/CeladonCity.png" alt="Celadon City"></div><p>From Cerulean, take <a href="Compendium.html#wild">Route 9</a> and <a href="Compendium.html#wild">Route 10</a> through the pitch-black <a href="Compendium.html#wild">Rock Tunnel</a> (Flash helps) to Lavender Town, then west on <a href="Compendium.html#wild">Route 8</a> to <b>Celadon City</b>. The <b>Department Store</b> is the best shop in Kanto &mdash; and in Legacy its counters stock <b>every evolution stone and item</b> in one place. From here you can tackle gyms 4&ndash;7 in a flexible order; <b>Legacy scales gyms 4&ndash;7 to the order you beat them</b>, so there's no wrong path.</p><p>The <a href="Compendium.html#kanto">CELADON GYM</a> is <b>Erika</b> (ace <b>Vileplume Lv 35</b>) &mdash; bring Fire or Flying. Then dive into the <b>Rocket Hideout</b> under the Game Corner, beat <b>Giovanni</b>'s first stand, and take the <b>Silph Scope</b> and <b>Hideout TM</b> (relocated to Flamethrower in Legacy). Every trainer and item down there is marked in Locations.</p></section><section class="wchap" id="w-fuchsia"><h2>6 · Pok&eacute;mon Tower to Fuchsia — Koga &amp; Janine</h2><div class="wmaps"><img class="maplay wsmall" loading="lazy" src="maps/PokemonTower_1F.png" alt="Pokémon Tower 1F"><img class="maplay wsmall" loading="lazy" src="maps/FuchsiaCity.png" alt="Fuchsia City"></div><p>Use the Silph Scope in the <b>Pok&eacute;mon Tower</b> in Lavender to lay the Marowak ghost to rest and receive the <b>Pok&eacute; Flute</b>, then wake the <b>Snorlax</b> blocking <a href="Compendium.html#wild">Route 12</a>. Head down through <a href="Compendium.html#wild">Route 13</a>&ndash;<a href="Compendium.html#wild">Route 15</a> or ride <b>Cycling Road</b> to <b>Fuchsia City</b>.</p><p>The <a href="Compendium.html#kanto">FUCHSIA GYM</a> is <b>Koga</b> (ace <b>Venomoth Lv 43</b>). Legacy adds his daughter <b>Janine</b> as an optional tribute trainer inside the gym, and clears out the invisible-wall cut trees so you can reach the leader from either side. Grab the <b>Soul Badge</b>. Fuchsia also hands you the <b>fossil Pok&eacute;mon</b> you didn't choose at Mt. Moon, and the <b>Safari Zone</b> (HM03 Surf, the Gold Teeth, and Strength) is right here.</p></section><section class="wchap" id="w-saffron"><h2>7 · Saffron City — Silph Co. &amp; Sabrina</h2><div class="wmaps"><img class="maplay wsmall" loading="lazy" src="maps/SaffronCity.png" alt="Saffron City"><img class="maplay wsmall" loading="lazy" src="maps/SilphCo_1F.png" alt="Silph Co 1F"></div><p>Return to <b>Saffron City</b> &mdash; the thirsty guards let you through once you bring them <b>TEA</b> from the old woman in the Celadon Condominiums. Team Rocket has seized <b>Silph Co.</b> Climb all eleven floors, grab the warp-tile loot, and beat <b>Giovanni</b>'s second stand to free the president and receive a <b>Lapras</b> (boosted to <b>Lv 35</b> in Legacy). Then challenge the <a href="Compendium.html#kanto">SAFFRON GYM</a>: <b>Sabrina</b> and her ace <b>Alakazam (Lv 50)</b> &mdash; Dark and Ghost moves are your friends (and remember Legacy uses the Gen&nbsp;3 split where <b>Ghost is special and Dark is physical</b>). Win the <b>Marsh Badge</b>. The <b>Fighting Dojo</b> is next door; its master gives a Hitmon, and Legacy's <b>Brick Piece</b> here lets a Tyrogue evolve into any of the three.</p></section><section class="wchap" id="w-cinnabar"><h2>8 · Cinnabar Island — Blaine</h2><div class="wmaps"><img class="maplay wsmall" loading="lazy" src="maps/CinnabarIsland.png" alt="Cinnabar Island"><img class="maplay wsmall" loading="lazy" src="maps/PokemonMansion_1F.png" alt="Pokémon Mansion 1F"></div><p>Surf south from Pallet down <a href="Compendium.html#wild">Route 21</a> (Legacy scatters starters in the northern grass here) to <b>Cinnabar Island</b>. The burned-down <b>Pok&eacute;mon Mansion</b> hides the Secret Key and plenty of items; grab it, then open the <a href="Compendium.html#kanto">CINNABAR GYM</a>. <b>Blaine</b>'s ace is <b>Magmar (Lv 53)</b> &mdash; Water, Rock or Ground answers him. Take the <b>Volcano Badge</b>. This is also where you can revive fossils and, later, hunt Legacy's custom static legends around the Sevii chain.</p></section><section class="wchap" id="w-viridian"><h2>9 · Viridian Gym — Giovanni</h2><div class="wmaps"><img class="maplay wsmall" loading="lazy" src="maps/ViridianCity.png" alt="Viridian City"></div><p>With seven badges, the <a href="Compendium.html#kanto">VIRIDIAN GYM</a> finally opens &mdash; and its leader is <b>Giovanni</b> himself, running a Ground team led by <b>Rhydon (Lv 55)</b>. Water and Grass sweep him. <b>Legacy change:</b> Giovanni no longer dissolves his gym and flees after losing &mdash; he stays put, which sets up the postgame rematch ladder. Claim the <b>Earth Badge</b>, your eighth, and the road to the League is open.</p></section><section class="wchap" id="w-league"><h2>10 · Victory Road &amp; the Elite Four</h2><div class="wmaps"><img class="maplay wsmall" loading="lazy" src="maps/VictoryRoad_1F.png" alt="Victory Road 1F"><img class="maplay wsmall" loading="lazy" src="maps/IndigoPlateau_Exterior.png" alt="Indigo Plateau Exterior"></div><p>Show all eight badges at the <a href="Compendium.html#wild">Route 22</a> gate, cross <a href="Compendium.html#wild">Route 23</a> and climb <a href="Compendium.html#wild">Victory Road</a> (Strength puzzles) to the <b>Indigo Plateau</b>. Stock up, then take the <a href="Compendium.html#elite">ELITE FOUR</a> in order: <b>Lorelei</b> (Ice), <b>Bruno</b> (Fighting/Rock), <b>Agatha</b> (Ghost/Poison) and <b>Lance</b> (Dragon), then your <b>rival</b> as <b>Champion</b> &mdash; his team is built around the Eeveelution that has countered you all game plus a full supporting cast. Beat him and you enter the Hall of Fame&hellip; which is where FireRed Legacy really begins. Afterwards, visit <b>Prof. Oak</b> with at least <b>60 Pok&eacute;mon owned</b> to receive the <b>National Pok&eacute;dex</b> &mdash; it upgrades the gym rematches to their mixed Tier&nbsp;2 teams and opens Cerulean Cave.</p></section><section class="wchap" id="w-sevii"><h2>11 · The Sevii Islands</h2><div class="wmaps"><img class="maplay wsmall" loading="lazy" src="maps/OneIsland.png" alt="One Island"></div><p>You can visit <b>One, Two and Three Island</b> during the main story (help Bill and Celio). Post-Champion, Celio's network quest sends you for the <b>Ruby</b> (Mt. Ember, past two Rockets) and the <b>Sapphire</b> (the Dotted Hole on Six Island &mdash; a Rocket snatches it, so chase him through the <b>Rocket Warehouse</b> on Five Island to take it back). Completing the link grants the <b>Rainbow Pass</b> and opens the full island chain. Two Island's market and the Celadon store cover evolution items; a post-Champion <b>Two Island shop</b> adds the incenses used to breed baby Pok&eacute;mon.</p><p><b>Legacy overhaul:</b> once you have the <b>Rainbow Pass</b>, <a href="Compendium.html#wild">islands Four through Seven</a> are re-seeded with <b>Gen 2 and Gen 3</b> wilds (islands 1&ndash;3 stay pure Kanto), and their trainers are rebuilt with tougher Johto/Hoenn teams. The Tanoby Ruins chambers hide the <b>Regi trio</b>, and the legendary beasts and other legends stand as static encounters across the chain (see <a href="#w-legends">Legendary Hunt</a>).</p></section><section class="wchap" id="w-rematch"><h2>12 · Postgame — the gated rematch road</h2><p>This is the heart of Legacy's endgame: a <b>gated ladder</b> of ever-harder rematches. Full team lists live under <a href="Compendium.html#rematches">Rematches</a>; the path is:</p><ol class='walknum'><li><b>Beat the Elite Four</b> (done) to unlock the <b>Kanto gym rematches</b> &mdash; ace Lv&nbsp;70. Without the National Dex you face each leader's Kanto-only team; with it (see chapter 10), the mixed Tier&nbsp;2 team.</li><li><b>Re-beat all eight leaders</b> (Giovanni included &mdash; he stayed!) to reopen the <b>Elite Four</b> as a Lv&nbsp;78&rarr;82 ladder. Lorelei blocks the League until all eight are done.</li><li><b>Beat the Elite Four rematch</b> to unlock the ferry to the <b>Johto Isles</b>.</li><li>Clear the sixteen Johto leaders and the Kanto gyms jump to <b>Tier&nbsp;3</b> (ace Lv&nbsp;92); re-beat all eight again to face the <b>Tier&nbsp;3 Elite Four</b>, ending on a <b>Level&nbsp;100 Champion</b> &mdash; the hardest fight in the game.</li></ol></section><section class="wchap" id="w-johto"><h2>13 · The Johto Isles</h2><div class="wmaps"><img class="maplay wsmall" loading="lazy" src="maps/JohtoIsle_Falkner.png" alt="Johto Isle Falkner"></div><p>After the Elite Four rematch, sail from <b>One Island Harbor</b> to the <a href="Compendium.html#isles">Johto Isles</a> &mdash; eight themed islands, each with <b>two</b> Gym Leaders: a Johto leader at the far end and a Hoenn co-leader. Beat both, then talk to the isle's Sailor to move on. The order is Skyreach (Falkner + Winona) &rarr; Chitin (Bugsy + Wattson) &rarr; Meadowmoo (Whitney + Norman) &rarr; Hollow (Morty + Tate&amp;Liza) &rarr; Ironfist (Chuck + Brawly) &rarr; Foundry (Jasmine + Roxanne) &rarr; Glacier (Pryce + Wallace) &rarr; Wyrmspire (Clair + Flannery). Aces sit at <b>Lv 88</b>, the game's level cap, and each isle carries its own themed wilds &mdash; so this is prime hunting for Johto/Hoenn species. Clearing Clair &amp; Flannery completes the circuit and promotes the Kanto gyms to Tier&nbsp;3.</p></section><section class="wchap" id="w-legends"><h2>14 · Legendary hunt</h2><div class="wmaps"><img class="maplay wsmall" loading="lazy" src="maps/CeruleanCave_B1F.png" alt="Cerulean Cave B 1F"></div><p>Legacy places a full set of <b>static</b> legendary encounters across the world &mdash; each one stands on the map (save first!). The roster:</p><ul class='walklist'><li><b>Kanto birds</b> &mdash; Articuno (Seafoam Islands), Zapdos (Power Plant), Moltres (Mt.&nbsp;Ember).</li><li><b>Mewtwo</b> &mdash; Cerulean Cave; the guard steps aside once you finish Celio's Ruby &amp; Sapphire network quest.</li><li><b>Legendary beasts</b> &mdash; Raikou (Five Isle Meadow), Entei (Sevault Canyon), Suicune (Water Path).</li><li><b>Celebi</b> &mdash; Berry Forest on Three Island.</li><li><b>Weather trio</b> &mdash; Kyogre (Water Labyrinth), Groudon (Ruin Valley), Rayquaza (a Tanoby chamber).</li><li><b>Latias &amp; Latios</b> &mdash; Resort Gorgeous on Five Island.</li><li><b>Jirachi &amp; the Regi trio</b> &mdash; deep in the Tanoby Ruins chambers.</li><li><b>Ho-Oh &amp; Lugia</b> (Navel Rock) and <b>Deoxys</b> (Birth Island) &mdash; their event tickets are granted in the postgame.</li></ul><p>Exact tiles are marked in <a href="Compendium.html#wild">Locations</a>, and every species' catch spot is searchable in <a href="Compendium.html#find">Find a Pok&eacute;mon</a>.</p></section><section class="wchap" id="w-mew"><h2>15 · The Mew quest</h2><div class="wmaps"><img class="maplay wsmall" loading="lazy" src="maps/PokemonMansion_B1F.png" alt="Pokémon Mansion B 1F"></div><p>Complete the <b>Kanto Pok&eacute;dex to 150</b> and become Champion, then visit <b>Prof. Oak</b> &mdash; he'll acknowledge your dex and send you to the <b>Pok&eacute;mon Mansion on Cinnabar</b>, where a secret battle with Oak himself (his birds are Lv 77&ndash;81) guards the way to a <b>Lv 70 Mew</b> static on the basement floor. Catch it to complete the original 151. Mew obeys you regardless of badges.</p></section><section class="wchap" id="w-extras"><h2>16 · Extras &amp; challenge features</h2><ul class='walklist'><li><b>Hard Mode</b> &mdash; chosen at game start. Level caps track your badge count (and, in the postgame, the Johto circuit), the SET battle style is forced, you can't use items in trainer battles, and fainting is <b>permanent</b> &mdash; a fainted Pok&eacute;mon can't be revived, healed, or stashed back into rotation.</li><li><b>Nuzlocke supply</b> &mdash; the Pallet Town Gentleman hands out Rare Candies, Master Balls, Full Restores, Max Repels and Max Elixirs (&times;99 each, repeatable) for self-imposed runs.</li><li><b>Key-item relocations</b> &mdash; the Old Rod is with a fishing guru in Viridian City, the Good Rod in Vermilion, and the Exp. Share aide (Route 15 gate) hands it over with no Pok&eacute;dex requirement.</li><li><b>Evolution items in one place</b> &mdash; the Celadon Department Store counter and Two Island market stock every stone and trade-evo item (usable straight from the bag), plus incenses for breeding baby Pok&eacute;mon.</li><li><b>Brick Piece / Tyrogue</b> &mdash; from the Saffron Fighting Dojo master, letting Tyrogue evolve into any of the three Hitmons.</li><li><b>Quality of life</b> &mdash; forgettable HMs, reusable Repel prompt, indoor running, instant text, an IV/EV summary viewer, and following Pok&eacute;mon.</li></ul></section></div>
+<div id="lightbox"><span class="lbclose" title="Close" aria-label="Close">&times;</span><img alt=""><div class="lbhint">Click the map to zoom in &middot; click outside or press Esc to close</div></div>
+<script>(function(){var lb=document.getElementById('lightbox'),im=lb.querySelector('img'),fw=0,z=false;
+function fit(){var s=Math.min(innerWidth*0.96/im.naturalWidth,innerHeight*0.92/im.naturalHeight,4);
+fw=Math.max(1,Math.round(im.naturalWidth*s));z=false;im.style.width=fw+'px';lb.scrollTop=lb.scrollLeft=0;im.style.cursor='zoom-in';}
+function op(src,alt){im.style.width='';im.src=src;im.alt=alt||'';lb.classList.add('open');
+document.body.style.overflow='hidden';im.complete?fit():(im.onload=fit);}
+function cl(){lb.classList.remove('open');im.removeAttribute('src');document.body.style.overflow='';}
+document.addEventListener('click',function(e){var m=e.target.closest&&e.target.closest('.maplay');if(m){e.preventDefault();op(m.src,m.alt);}});
+im.addEventListener('click',function(e){e.stopPropagation();z=!z;im.style.width=(z?fw*2:fw)+'px';im.style.cursor=z?'zoom-out':'zoom-in';if(!z){lb.scrollTop=lb.scrollLeft=0;}});
+lb.addEventListener('click',cl);
+window.addEventListener('resize',function(){if(lb.classList.contains('open')&&im.naturalWidth)fit();});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')cl();});})();</script>
+</body></html>
