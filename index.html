@@ -26,40 +26,33 @@
 </script>
 <script src="sitenav.js" defer></script>
 <style>
-body{background:#000}
-.home{min-height:calc(100vh - 53px);min-height:calc(100svh - 53px);display:flex;align-items:center;justify-content:center;
-      background:#000;color:#f5f5f7;text-align:center;padding:28px 22px}
-.home .wrapin{max-width:1040px;width:100%}
-.home h1{font-size:clamp(38px,5.6vw,68px);font-weight:800;letter-spacing:-.03em;line-height:1.05}
-.home h1 .fire{background:var(--fire);background-size:200% auto;-webkit-background-clip:text;background-clip:text;
-               color:transparent;animation:shimmer 6s linear infinite}
-.home .tag{font-size:clamp(15px,1.6vw,18px);color:#a1a1a6;max-width:820px;margin:14px auto 0;line-height:1.5}
-.home .tag b{color:#f5f5f7}
-.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:26px auto 0;text-align:left}
-.tile{background:#121213;border:1px solid #232326;border-radius:14px;padding:12px 16px}
-.tile b{display:block;font-size:15px;margin-bottom:3px}
-.tile span{color:#a1a1a6;font-size:13.5px;line-height:1.42}
-a.tile{display:block;color:#f5f5f7;text-decoration:none!important;background:#1d1d1f;transition:background .2s}
-a.tile:hover{background:#2a2a2d}
-a.tile b::after{content:" \203A";color:#f09819}
-.feats{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:12px auto 0;text-align:left}
-.feat{display:block;background:#1d1d1f;border-radius:16px;padding:14px 18px;color:#f5f5f7;text-decoration:none!important;transition:background .2s}
-.feat:hover{background:#2a2a2d}
-.feat b{display:block;font-size:16px;margin-bottom:3px}
-.feat b::after{content:" \203A";color:#f09819}
-.feat span{color:#a1a1a6;font-size:13.5px;line-height:1.42}
-.home .cta{margin-top:22px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-@media(max-width:900px){.tiles{grid-template-columns:repeat(2,1fr)}.tiles>.tile:last-child:nth-child(odd){grid-column:1/-1}}
-@media(min-width:601px) and (max-height:780px){.home{padding:14px 22px}.tiles{margin-top:18px}.home .cta{margin-top:16px}}
-@media(max-width:600px){
-  .home{align-items:flex-start;padding:22px 16px}
-  .feats{grid-template-columns:1fr;gap:8px}
-  .tiles{grid-template-columns:repeat(2,1fr);gap:8px;margin-top:18px}
-  .tile{padding:10px 12px}
-  .tile b{font-size:14px}
-  .tile span{font-size:12.5px;line-height:1.38}
-  .home .tag{font-size:14.5px}
-  .home .cta .btn{padding:11px 20px;font-size:15px}
+body{background:#000;color:#f5f5f7}
+.hhero{text-align:center;padding:56px 22px 40px}
+.hhero h1{font-size:clamp(38px,6vw,72px);font-weight:800;letter-spacing:-.03em;line-height:1.05}
+.hhero h1 .fire{background:var(--fire);background-size:200% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shimmer 6s linear infinite}
+.hhero .cta{margin-top:24px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.hwrap{max-width:1180px;margin:0 auto;padding:0 22px 80px;display:grid;grid-template-columns:230px 1fr;gap:40px}
+.hnav{position:sticky;top:76px;align-self:start;display:flex;flex-direction:column;gap:2px;background:#111112;border:1px solid #232326;border-radius:16px;padding:12px}
+.hnav a{color:#a1a1a6;font-size:14.5px;padding:8px 12px;border-radius:9px;text-decoration:none!important}
+.hnav a:hover{color:#f5f5f7;background:#1d1d1f}
+.hnav a.cur{color:#fff;background:#2a2a2d;font-weight:600}
+.hs{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center;padding:44px 0;border-top:1px solid #1d1d1f;scroll-margin-top:70px}
+.hs:first-child{border-top:0;padding-top:8px}
+.hs.flip .htext{order:2}
+.hs h2{font-size:clamp(26px,3vw,36px);font-weight:800;letter-spacing:-.02em;margin-bottom:12px}
+.hs p{color:#c7c7cc;font-size:17px;line-height:1.55}
+.hs .more{display:inline-block;margin-top:14px;font-weight:600;color:#f09819}
+.shot{margin:0;background:#111112;border:1px solid #232326;border-radius:16px;padding:12px;display:flex;justify-content:center}
+.shot img{display:block;width:100%;max-width:480px;height:auto;image-rendering:pixelated;border-radius:8px}
+.shot.map img{width:auto;max-height:360px;max-width:100%}
+.shot svg{width:100%;max-width:480px;height:auto}
+@media(max-width:900px){
+  .hwrap{grid-template-columns:1fr;gap:0}
+  .hnav{position:sticky;top:52px;z-index:30;flex-direction:row;overflow-x:auto;border-radius:0;margin:0 -22px;border-width:0 0 1px;background:rgba(0,0,0,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:8px 16px;scrollbar-width:none}
+  .hnav::-webkit-scrollbar{display:none}
+  .hnav a{flex:none;font-size:13.5px;padding:6px 12px;background:#1d1d1f;border-radius:980px}
+  .hs{grid-template-columns:1fr;gap:18px;padding:34px 0;scroll-margin-top:110px}
+  .hs.flip .htext{order:0}
 }
 </style>
 </head>
@@ -67,24 +60,45 @@ a.tile b::after{content:" \203A";color:#f09819}
 
 <header class="sn"><div class="sn-in"><a class="sn-brand" href="index.html">FireRed <span>Reforged</span></a><button class="sn-menu" type="button" aria-label="Menu" aria-expanded="false">&#9776;</button><div class="sn-links"><a href="index.html" class="on">Home</a><a href="changes.html">Overview</a><a href="Walkthrough.html">Walkthrough</a><a href="Compendium.html">Pok&eacute;dex &amp; Data</a><a class="sn-cta" href="getit.html">Get It</a></div></div></header>
 
-<main class="home"><div class="wrapin">
+<div class="hhero">
   <h1>Pokémon <span class="fire">FireRed Reforged</span></h1>
-  <div class="tiles">
-    <div class="tile"><b>Same Kanto, Same Story</b><span>A slight blend of Yellow and Red/Blue. Professor Oak gives you one of the three starter Pokémon and your rival gets an Eevee. The main story through the Elite Four matches FireRed's, but the postgame adds many additional twists and turns!</span></div>
-    <a class="tile link" href="changes.html#postgame"><b>Upgraded Postgame</b><span>Johto &amp; Hoenn leaders on the Johto Isles, gym rematches, Elite Four rematches, additional new trainers, and more.</span></a>
-    <a class="tile link" href="changes.html#modes"><b>Game Modes</b><span>Hard mode with enforced level caps and perma-death. A randomizer built in. An optional Pallet Town NPC who gives key supplies.</span></a>
-    <div class="tile"><b>Trainer Teams</b><span>300+ trainer teams rebuilt, largely based on the ideology of Yellow Legacy by the SmithPlaysPokemon team.</span></div>
-    <div class="tile"><b>Wild Encounters</b><span>All wild encounters updated, again heavily inspired by Yellow Legacy's decisions. All 386 Pokémon are obtainable.</span></div>
-    <div class="tile"><b>Gym Order</b><span>Erika, Koga, Sabrina, and Blaine can be battled in any order. Their teams adjust based on the order you battle them.</span></div>
-    <div class="tile"><b>Level Curve</b><span>Levels climb smoothly with updated trainer teams.</span></div>
-    <div class="tile"><b>Meet the Ace</b><span>Every leader and Elite Four member stands beside their signature Pokémon.</span></div>
-    <div class="tile"><b>Following Pokémon</b><span>HeartGold/SoulSilver-style following Pokémon.</span></div>
-  </div>
   <div class="cta">
     <a class="btn solid" href="https://github.com/jsunaldo/Pokemon-FireRed-Reforged/releases/download/v2.17/FireRed_Reforged_v2.17.bps">Download v2.17</a>
     <a class="btn ghost" href="getit.html#credits">Credits</a>
   </div>
-</div></main>
+</div>
 
+<div class="hwrap">
+  <nav class="hnav" aria-label="On this page"><a href="#s-story">Same Kanto, Same Story</a><a href="#s-postgame">Upgraded Postgame</a><a href="#s-modes">Game Modes</a><a href="#s-trainers">Trainer Teams</a><a href="#s-wild">Wild Encounters</a><a href="#s-gyms">Gym Order</a><a href="#s-curve">Level Curve</a><a href="#s-ace">Meet the Ace</a><a href="#s-follow">Following Pokémon</a></nav>
+  <main>
+<section class="hs" id="s-story"><div class="htext"><h2>Same Kanto, Same Story</h2><p>A slight blend of Yellow and Red/Blue. Professor Oak gives you one of the three starter Pokémon and your rival gets an Eevee. The main story through the Elite Four matches FireRed's, but the postgame adds many additional twists and turns!</p></div><figure class="shot map"><img src="home/story.png" alt="Professor Oak's Lab in Pallet Town" loading="lazy"></figure></section>
+<section class="hs flip" id="s-postgame"><div class="htext"><h2>Upgraded Postgame</h2><p>Johto &amp; Hoenn leaders on the Johto Isles, gym rematches, Elite Four rematches, additional new trainers, and more.</p><a class="more" href="changes.html#postgame">Postgame details &rsaquo;</a></div><figure class="shot map"><img src="home/postgame.png" alt="Skyreach, the first of the Johto Isles" loading="lazy"></figure></section>
+<section class="hs" id="s-modes"><div class="htext"><h2>Game Modes</h2><p>Hard mode with enforced level caps and perma-death. A randomizer built in. An optional Pallet Town NPC who gives key supplies.</p><a class="more" href="changes.html#modes">Modes details &rsaquo;</a></div><figure class="shot"><img src="home/modes.png" alt="The randomizer settings screen with the GENS row" loading="lazy"></figure></section>
+<section class="hs flip" id="s-trainers"><div class="htext"><h2>Trainer Teams</h2><p>300+ trainer teams rebuilt, largely based on the ideology of Yellow Legacy by the SmithPlaysPokemon team.</p></div><figure class="shot"><img src="home/trainers.png" alt="A Lv 63 Alakazam leading the Champion's team" loading="lazy"></figure></section>
+<section class="hs" id="s-wild"><div class="htext"><h2>Wild Encounters</h2><p>All wild encounters updated, again heavily inspired by Yellow Legacy's decisions. All 386 Pokémon are obtainable.</p></div><figure class="shot"><img src="home/wild.png" alt="A wild Pokémon appears on Route 1" loading="lazy"></figure></section>
+<section class="hs flip" id="s-gyms"><div class="htext"><h2>Gym Order</h2><p>Erika, Koga, Sabrina, and Blaine can be battled in any order. Their teams adjust based on the order you battle them.</p></div><figure class="shot map"><img src="home/gyms.png" alt="Erika's Celadon Gym" loading="lazy"></figure></section>
+<section class="hs" id="s-curve"><div class="htext"><h2>Level Curve</h2><p>Levels climb smoothly with updated trainer teams.</p></div><figure class="shot"><svg viewBox="0 0 480 300" role="img" aria-label="Hard mode level cap by badge: Brock 12, Misty 21, Surge 24, Gym 4 35, Gym 5 43, Gym 6 50, Gym 7 53, Giovanni 55, Elite 4 65"><defs><linearGradient id="fire" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#ff512f"/><stop offset="1" stop-color="#f09819"/></linearGradient></defs><text x="34" y="20" font-size="12" fill="#a1a1a6">Hard mode level cap by badge</text><rect x="40" y="215" width="34" height="41" rx="5" fill="url(#fire)"/><text x="57" y="209" text-anchor="middle" font-size="13" font-weight="700" fill="#f5f5f7">12</text><text x="57" y="276" text-anchor="middle" font-size="10.5" fill="#a1a1a6">Brock</text><rect x="86" y="185" width="34" height="71" rx="5" fill="url(#fire)"/><text x="103" y="179" text-anchor="middle" font-size="13" font-weight="700" fill="#f5f5f7">21</text><text x="103" y="276" text-anchor="middle" font-size="10.5" fill="#a1a1a6">Misty</text><rect x="132" y="175" width="34" height="81" rx="5" fill="url(#fire)"/><text x="148" y="169" text-anchor="middle" font-size="13" font-weight="700" fill="#f5f5f7">24</text><text x="148" y="276" text-anchor="middle" font-size="10.5" fill="#a1a1a6">Surge</text><rect x="177" y="138" width="34" height="118" rx="5" fill="url(#fire)"/><text x="194" y="132" text-anchor="middle" font-size="13" font-weight="700" fill="#f5f5f7">35</text><text x="194" y="276" text-anchor="middle" font-size="10.5" fill="#a1a1a6">Gym 4</text><rect x="223" y="110" width="34" height="146" rx="5" fill="url(#fire)"/><text x="240" y="104" text-anchor="middle" font-size="13" font-weight="700" fill="#f5f5f7">43</text><text x="240" y="276" text-anchor="middle" font-size="10.5" fill="#a1a1a6">Gym 5</text><rect x="269" y="87" width="34" height="169" rx="5" fill="url(#fire)"/><text x="286" y="81" text-anchor="middle" font-size="13" font-weight="700" fill="#f5f5f7">50</text><text x="286" y="276" text-anchor="middle" font-size="10.5" fill="#a1a1a6">Gym 6</text><rect x="315" y="77" width="34" height="179" rx="5" fill="url(#fire)"/><text x="332" y="71" text-anchor="middle" font-size="13" font-weight="700" fill="#f5f5f7">53</text><text x="332" y="276" text-anchor="middle" font-size="10.5" fill="#a1a1a6">Gym 7</text><rect x="360" y="70" width="34" height="186" rx="5" fill="url(#fire)"/><text x="377" y="64" text-anchor="middle" font-size="13" font-weight="700" fill="#f5f5f7">55</text><text x="377" y="276" text-anchor="middle" font-size="10.5" fill="#a1a1a6">Giovanni</text><rect x="406" y="36" width="34" height="220" rx="5" fill="url(#fire)"/><text x="423" y="30" text-anchor="middle" font-size="13" font-weight="700" fill="#f5f5f7">65</text><text x="423" y="276" text-anchor="middle" font-size="10.5" fill="#a1a1a6">Elite 4</text></svg></figure></section>
+<section class="hs flip" id="s-ace"><div class="htext"><h2>Meet the Ace</h2><p>Every leader and Elite Four member stands beside their signature Pokémon.</p></div><figure class="shot"><img src="home/ace.png" alt="Gary waits in the Champion's room with his ace beside him" loading="lazy"></figure></section>
+<section class="hs" id="s-follow"><div class="htext"><h2>Following Pokémon</h2><p>HeartGold/SoulSilver-style following Pokémon.</p></div><figure class="shot"><img src="home/follow.png" alt="Lugia following the player on One Island" loading="lazy"></figure></section>
+  </main>
+</div>
+
+<script>
+(function () {
+  var links = [].slice.call(document.querySelectorAll('.hnav a'));
+  var secs = links.map(function (a) { return document.querySelector(a.getAttribute('href')); });
+  function mark() {
+    var idx = 0;
+    secs.forEach(function (s, i) { if (s.getBoundingClientRect().top < 160) idx = i; });
+    links.forEach(function (a, i) {
+      a.classList.toggle('cur', i === idx);
+      if (i === idx && a.parentNode.scrollWidth > a.parentNode.clientWidth) {
+        var p = a.parentNode; var l = a.offsetLeft - p.clientWidth / 2 + a.clientWidth / 2; p.scrollLeft = l;
+      }
+    });
+  }
+  window.addEventListener('scroll', mark, { passive: true }); mark();
+})();
+</script>
 </body>
 </html>
