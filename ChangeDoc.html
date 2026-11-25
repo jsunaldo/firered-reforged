@@ -1,13 +1,15 @@
 <!doctype html><html><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>FireRed Legacy ChangeDoc</title><style>
 body{font-family:-apple-system,Segoe UI,Roboto,sans-serif;margin:0;background:#f4f4f8;color:#222}
 .wrap{max-width:1100px;margin:auto;padding:16px}
-nav{position:sticky;top:0;background:#3b4cca;padding:10px 16px;z-index:5}
+nav{position:sticky;top:102px;background:#3b4cca;padding:10px 16px;z-index:5}
 nav a{color:#fff;margin-right:18px;text-decoration:none;font-weight:600}
 h1{border-bottom:3px solid #3b4cca;padding-bottom:4px;margin-top:40px}
 h2{margin:28px 0 8px}
 .battle{display:flex;gap:14px;align-items:flex-start}
 .side{flex:1;background:#fff;border:1px solid #ddd;border-radius:8px;padding:10px}
+@media(max-width:700px){.battle{flex-direction:column}.side{width:100%;min-width:0;box-sizing:border-box}table{display:block;overflow-x:auto;max-width:100%}}
 .side>h3{margin:2px 0 8px;font-size:14px;text-transform:uppercase;letter-spacing:1px;color:#666}
 .team{display:flex;flex-wrap:wrap;gap:8px}
 .mon{background:#f8f8fc;border:1px solid #e0e0e8;border-radius:8px;padding:8px;width:150px;text-align:center}
@@ -35,11 +37,12 @@ h4{margin:10px 0 2px}
 .badge{display:inline-block;background:#ffb300;color:#3a2a00;font-size:11px;font-weight:700;
        border-radius:10px;padding:1px 9px;margin-left:8px;vertical-align:middle}
 .badge.zero{background:#cfd8dc;color:#546e7a}
-.toolbar{position:sticky;top:38px;background:#eef0fb;border-bottom:1px solid #c5cae9;
+.toolbar{position:sticky;top:140px;background:#eef0fb;border-bottom:1px solid #c5cae9;
          padding:7px 16px;z-index:4;font-size:14px}
 .toolbar label{cursor:pointer;font-weight:600;color:#3b4cca}
 body.diffonly .nochange{display:none}
-</style></head><body>
+</style><link rel="stylesheet" href="sitenav.css"><script src="sitenav.js" defer></script></head><body data-page="changedoc">
+<header class="sn"><div class="sn-in"><a class="sn-brand" href="index.html">FireRed <span>Legacy</span></a><button class="sn-menu" type="button" aria-label="Menu" aria-expanded="false">&#9776;</button><div class="sn-links"><a href="index.html">Home</a><a href="changes.html">What's Different</a><a href="Walkthrough.html">Walkthrough</a><a href="Compendium.html" class="on">Pok&eacute;dex &amp; Data</a><a class="sn-cta" href="index.html#getit">Get It</a></div></div></header><div class="dn"><div class="dn-in"><a href="Compendium.html#trainers">Trainers</a><a href="Compendium.html#rematches">Rematches</a><a href="Compendium.html#find">Find a Pok&eacute;mon</a><a href="Compendium.html#wild">Locations</a><a href="Compendium.html#dex">Pok&eacute;dex</a><a href="NuzlockeRoutes.html">Nuzlocke Routes</a><a href="ChangeDoc.html" class="on">Full ChangeDoc</a></div></div>
 <nav><a href="#bosses">Boss Battles</a><a href="#wild">Wild Encounters</a>
 <a href="#dex">Pok&eacute;dex</a><a href="#moves">Moves</a>
 <a href="#extras">Mechanics &amp; Items</a></nav>
