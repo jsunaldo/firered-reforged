@@ -31,7 +31,7 @@ body{background:#000;color:#f5f5f7}
 .hhero h1{font-size:clamp(38px,6vw,72px);font-weight:800;letter-spacing:-.03em;line-height:1.05}
 .hhero h1 .fire{background:var(--fire);background-size:200% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shimmer 6s linear infinite}
 .hhero .cta{margin-top:24px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-.hwrap{max-width:1180px;margin:0 auto;padding:0 22px 80px;display:grid;grid-template-columns:230px 1fr;gap:40px}
+.hwrap{max-width:1180px;margin:0 auto;padding:36px 22px 80px;display:grid;grid-template-columns:230px 1fr;gap:40px}
 .hnav{position:sticky;top:76px;align-self:start;display:flex;flex-direction:column;gap:2px;background:#111112;border:1px solid #232326;border-radius:16px;padding:12px}
 .hnav a{color:#a1a1a6;font-size:14.5px;padding:8px 12px;border-radius:9px;text-decoration:none!important}
 .hnav a:hover{color:#f5f5f7;background:#1d1d1f}
@@ -39,6 +39,9 @@ body{background:#000;color:#f5f5f7}
 .hs{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center;padding:44px 0;border-top:1px solid #1d1d1f;scroll-margin-top:70px}
 .hs:first-child{border-top:0;padding-top:8px}
 .hs.flip .htext{order:2}
+.hs.solo{grid-template-columns:1fr}
+.hs.solo p+p{margin-top:12px}
+.hs.solo p{font-size:15.5px}
 .hs h2{font-size:clamp(26px,3vw,36px);font-weight:800;letter-spacing:-.02em;margin-bottom:12px}
 .hs p{color:#c7c7cc;font-size:17px;line-height:1.55}
 .hs .more{display:inline-block;margin-top:14px;font-weight:600;color:#f09819}
@@ -47,7 +50,7 @@ body{background:#000;color:#f5f5f7}
 .shot.map img{width:auto;max-height:360px;max-width:100%}
 .shot svg{width:100%;max-width:480px;height:auto}
 @media(max-width:900px){
-  .hwrap{grid-template-columns:1fr;gap:0}
+  .hwrap{grid-template-columns:1fr;gap:0;padding-top:0}
   .hnav{position:sticky;top:52px;z-index:30;flex-direction:row;overflow-x:auto;border-radius:0;margin:0 -22px;border-width:0 0 1px;background:rgba(0,0,0,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:8px 16px;scrollbar-width:none}
   .hnav::-webkit-scrollbar{display:none}
   .hnav a{flex:none;font-size:13.5px;padding:6px 12px;background:#1d1d1f;border-radius:980px}
@@ -60,16 +63,8 @@ body{background:#000;color:#f5f5f7}
 
 <header class="sn"><div class="sn-in"><a class="sn-brand" href="index.html">FireRed <span>Reforged</span></a><button class="sn-menu" type="button" aria-label="Menu" aria-expanded="false">&#9776;</button><div class="sn-links"><a href="index.html" class="on">Home</a><a href="changes.html">Overview</a><a href="Walkthrough.html">Walkthrough</a><a href="Compendium.html">Pok&eacute;dex &amp; Data</a><a class="sn-cta" href="getit.html">Get It</a></div></div></header>
 
-<div class="hhero">
-  <h1>Pokémon <span class="fire">FireRed Reforged</span></h1>
-  <div class="cta">
-    <a class="btn solid" href="https://github.com/jsunaldo/Pokemon-FireRed-Reforged/releases/download/v2.17/FireRed_Reforged_v2.17.bps">Download v2.17</a>
-    <a class="btn ghost" href="getit.html#credits">Credits</a>
-  </div>
-</div>
-
 <div class="hwrap">
-  <nav class="hnav" aria-label="On this page"><a href="#s-story">Same Kanto, Same Story</a><a href="#s-postgame">Upgraded Postgame</a><a href="#s-modes">Game Modes</a><a href="#s-trainers">Trainer Teams</a><a href="#s-wild">Wild Encounters</a><a href="#s-gyms">Gym Order</a><a href="#s-curve">Level Curve</a><a href="#s-ace">Meet the Ace</a><a href="#s-follow">Following Pokémon</a></nav>
+  <nav class="hnav" aria-label="On this page"><a href="#s-story">Same Kanto, Same Story</a><a href="#s-postgame">Upgraded Postgame</a><a href="#s-modes">Game Modes</a><a href="#s-trainers">Trainer Teams</a><a href="#s-wild">Wild Encounters</a><a href="#s-gyms">Gym Order</a><a href="#s-curve">Level Curve</a><a href="#s-ace">Meet the Ace</a><a href="#s-follow">Following Pokémon</a><a href="#s-credits">Credits</a></nav>
   <main>
 <section class="hs" id="s-story"><div class="htext"><h2>Same Kanto, Same Story</h2><p>A slight blend of Yellow and Red/Blue. Professor Oak gives you one of the three starter Pokémon and your rival gets an Eevee. The main story through the Elite Four matches FireRed's, but the postgame adds many additional twists and turns!</p></div><figure class="shot map"><img src="home/story.png" alt="Professor Oak's Lab in Pallet Town" loading="lazy"></figure></section>
 <section class="hs flip" id="s-postgame"><div class="htext"><h2>Upgraded Postgame</h2><p>Johto &amp; Hoenn leaders on the Johto Isles, gym rematches, Elite Four rematches, additional new trainers, and more.</p><a class="more" href="changes.html#postgame">Postgame details &rsaquo;</a></div><figure class="shot map"><img src="home/postgame.png" alt="Skyreach, the first of the Johto Isles" loading="lazy"></figure></section>
@@ -80,6 +75,11 @@ body{background:#000;color:#f5f5f7}
 <section class="hs" id="s-curve"><div class="htext"><h2>Level Curve</h2><p>Levels climb smoothly with updated trainer teams.</p></div><figure class="shot"><svg viewBox="0 0 480 300" role="img" aria-label="Hard mode level cap by badge: Brock 12, Misty 21, Surge 24, Gym 4 35, Gym 5 43, Gym 6 50, Gym 7 53, Giovanni 55, Elite 4 65"><defs><linearGradient id="fire" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#ff512f"/><stop offset="1" stop-color="#f09819"/></linearGradient></defs><text x="34" y="20" font-size="12" fill="#a1a1a6">Hard mode level cap by badge</text><rect x="40" y="215" width="34" height="41" rx="5" fill="url(#fire)"/><text x="57" y="209" text-anchor="middle" font-size="13" font-weight="700" fill="#f5f5f7">12</text><text x="57" y="276" text-anchor="middle" font-size="10.5" fill="#a1a1a6">Brock</text><rect x="86" y="185" width="34" height="71" rx="5" fill="url(#fire)"/><text x="103" y="179" text-anchor="middle" font-size="13" font-weight="700" fill="#f5f5f7">21</text><text x="103" y="276" text-anchor="middle" font-size="10.5" fill="#a1a1a6">Misty</text><rect x="132" y="175" width="34" height="81" rx="5" fill="url(#fire)"/><text x="148" y="169" text-anchor="middle" font-size="13" font-weight="700" fill="#f5f5f7">24</text><text x="148" y="276" text-anchor="middle" font-size="10.5" fill="#a1a1a6">Surge</text><rect x="177" y="138" width="34" height="118" rx="5" fill="url(#fire)"/><text x="194" y="132" text-anchor="middle" font-size="13" font-weight="700" fill="#f5f5f7">35</text><text x="194" y="276" text-anchor="middle" font-size="10.5" fill="#a1a1a6">Gym 4</text><rect x="223" y="110" width="34" height="146" rx="5" fill="url(#fire)"/><text x="240" y="104" text-anchor="middle" font-size="13" font-weight="700" fill="#f5f5f7">43</text><text x="240" y="276" text-anchor="middle" font-size="10.5" fill="#a1a1a6">Gym 5</text><rect x="269" y="87" width="34" height="169" rx="5" fill="url(#fire)"/><text x="286" y="81" text-anchor="middle" font-size="13" font-weight="700" fill="#f5f5f7">50</text><text x="286" y="276" text-anchor="middle" font-size="10.5" fill="#a1a1a6">Gym 6</text><rect x="315" y="77" width="34" height="179" rx="5" fill="url(#fire)"/><text x="332" y="71" text-anchor="middle" font-size="13" font-weight="700" fill="#f5f5f7">53</text><text x="332" y="276" text-anchor="middle" font-size="10.5" fill="#a1a1a6">Gym 7</text><rect x="360" y="70" width="34" height="186" rx="5" fill="url(#fire)"/><text x="377" y="64" text-anchor="middle" font-size="13" font-weight="700" fill="#f5f5f7">55</text><text x="377" y="276" text-anchor="middle" font-size="10.5" fill="#a1a1a6">Giovanni</text><rect x="406" y="36" width="34" height="220" rx="5" fill="url(#fire)"/><text x="423" y="30" text-anchor="middle" font-size="13" font-weight="700" fill="#f5f5f7">65</text><text x="423" y="276" text-anchor="middle" font-size="10.5" fill="#a1a1a6">Elite 4</text></svg></figure></section>
 <section class="hs flip" id="s-ace"><div class="htext"><h2>Meet the Ace</h2><p>Every leader and Elite Four member stands beside their signature Pokémon.</p></div><figure class="shot"><img src="home/ace.png" alt="Misty stands beside her ace, Starmie, in the Cerulean Gym" loading="lazy"></figure></section>
 <section class="hs" id="s-follow"><div class="htext"><h2>Following Pokémon</h2><p>HeartGold/SoulSilver-style following Pokémon.</p></div><figure class="shot"><img src="home/follow.png" alt="Lugia following the player on One Island" loading="lazy"></figure></section>
+<section class="hs solo" id="s-credits"><div class="htext"><h2>Credits</h2>
+<p>A fan project, free forever, in the style of the Legacy series. Formerly FireRed Legacy.</p>
+<p>Standing on the shoulders of: <a href="https://pret.github.io/">pret</a> (the pokefirered decompilation) · <a href="https://github.com/cRz-Shadows/Pokemon_Yellow_Legacy">Pokémon Yellow Legacy</a> and <a href="https://github.com/cRz-Shadows/Pokemon_Emerald_Legacy">Pokémon Emerald Legacy</a> by TheSmithPlays, cRz Shadows &amp; teams — the design this hack ports and the philosophy it follows.</p>
+<p>Battle sprites: Nurse Joy and Officer Jenny by <a href="https://www.deviantart.com/ginzhio">ginzhio</a>; Janine by <a href="https://www.deviantart.com/sacredgbc123">Sacredgbc123</a>. Type symbols from <a href="https://github.com/duiker101/pokemon-type-svg-icons">duiker101/pokemon-type-svg-icons</a>.</p>
+<p>Pokémon is © Nintendo / Creatures Inc. / GAME FREAK inc. This is a non-commercial fan work, not affiliated with or endorsed by Nintendo.</p></div></section>
   </main>
 </div>
 
@@ -90,6 +90,7 @@ body{background:#000;color:#f5f5f7}
   function mark() {
     var idx = 0;
     secs.forEach(function (s, i) { if (s.getBoundingClientRect().top < 160) idx = i; });
+    if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) idx = secs.length - 1;
     links.forEach(function (a, i) {
       a.classList.toggle('cur', i === idx);
       if (i === idx && a.parentNode.scrollWidth > a.parentNode.clientWidth) {
