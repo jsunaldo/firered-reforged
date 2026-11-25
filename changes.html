@@ -19,41 +19,14 @@
 <header class="sn"><div class="sn-in"><a class="sn-brand" href="index.html">FireRed <span>Reforged</span></a><button class="sn-menu" type="button" aria-label="Menu" aria-expanded="false">&#9776;</button><div class="sn-links"><a href="index.html">Home</a><a href="changes.html" class="on">What's Different</a><a href="Walkthrough.html">Walkthrough</a><a href="Compendium.html">Pok&eacute;dex &amp; Data</a><a class="sn-cta" href="getit.html">Get It</a></div></div></header>
 
 <div class="tabs" role="tablist"><div class="in">
-  <button type="button" data-tab="kanto" class="on">Story</button>
-  <button type="button" data-tab="engine">Battle Engine</button>
+  <button type="button" data-tab="engine" class="on">Battle Engine</button>
   <button type="button" data-tab="qol">Items &amp; QoL</button>
   <button type="button" data-tab="modes">Modes</button>
   <button type="button" data-tab="postgame">Postgame</button>
 </div></div>
 
-<!-- STORY & KANTO -->
-<div class="panel on" id="p-kanto"><section>
-  <div class="in">
-    
-    <div class="card" style="margin-top:44px">
-      <h3>Same Kanto, Same Story</h3>
-      <p>A slight blend of Yellow and Red/Blue. Professor Oak gives you one of the three starter Pokémon and your rival
-      gets an Eevee. The main story through the Elite Four matches FireRed's, but the postgame adds many additional twists and turns!</p>
-    </div>
-    <div class="grid c3f" style="margin-top:20px">
-      <div class="card"><h3>Trainer Teams</h3>
-        <p>300+ trainer teams rebuilt, largely based on the ideology of Yellow Legacy by the SmithPlaysPokemon team.</p></div>
-      <div class="card"><h3>Wild Encounters</h3>
-        <p>All wild encounters updated, again heavily inspired by Yellow Legacy's decisions. All 386 Pokémon are obtainable.</p></div>
-      <div class="card"><h3>Gym Order</h3>
-        <p>Erika, Koga, Sabrina, and Blaine can be battled in any order. Their teams adjust based on the order you battle them.</p></div>
-      <div class="card"><h3>Level Curve</h3>
-        <p>Levels climb smoothly with updated trainer teams.</p></div>
-      <div class="card"><h3>Meet the Ace</h3>
-        <p>Every leader and Elite Four member stands beside their signature Pokémon.</p></div>
-      <div class="card"><h3>Following Pokémon</h3>
-        <p>HeartGold/SoulSilver-style following Pokémon.</p></div>
-    </div>
-  </div>
-</section></div>
-
 <!-- BATTLE ENGINE -->
-<div class="panel" id="p-engine"><section>
+<div class="panel on" id="p-engine"><section>
   <div class="in">
     
     <div class="grid c3f">
@@ -182,11 +155,13 @@
 
 <script>
 (function () {
-  var alias = {story:'kanto', johto:'postgame', rematch:'postgame', nuzlocke:'modes', items:'qol'};
+  var alias = {johto:'postgame', rematch:'postgame', nuzlocke:'modes', items:'qol'};
+  var h0 = location.hash.slice(1);
+  if (h0 === 'kanto' || h0 === 'story') { location.replace('index.html'); return; }
   var btns = document.querySelectorAll('.tabs button');
   function show(name, push) {
     name = alias[name] || name;
-    if (!document.getElementById('p-' + name)) name = 'kanto';
+    if (!document.getElementById('p-' + name)) name = 'engine';
     btns.forEach(function (b) { b.classList.toggle('on', b.dataset.tab === name); });
     document.querySelectorAll('.panel').forEach(function (p) { p.classList.toggle('on', p.id === 'p-' + name); });
     if (push) history.replaceState(null, '', '#' + name);

@@ -14,7 +14,7 @@
 <script>
 // Old single-page links now live on What's Different or Get It.
 (function () {
-  var map = {story:'changes.html#kanto', kanto:'changes.html#kanto', engine:'changes.html#engine',
+  var map = {engine:'changes.html#engine',
              modes:'changes.html#modes', nuzlocke:'changes.html#modes', qol:'changes.html#qol',
              items:'changes.html#qol', postgame:'changes.html#postgame', johto:'changes.html#postgame',
              rematch:'changes.html#postgame', getit:'getit.html', new:'getit.html#versions',
@@ -29,40 +29,34 @@
 body{background:#000}
 .home{min-height:calc(100vh - 53px);min-height:calc(100svh - 53px);display:flex;align-items:center;justify-content:center;
       background:#000;color:#f5f5f7;text-align:center;padding:28px 22px}
-.home .wrapin{max-width:1000px;width:100%}
-.home .kicker{font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:#a1a1a6;margin-bottom:12px}
-.home h1{font-size:clamp(44px,7.2vw,88px);font-weight:800;letter-spacing:-.03em;line-height:1.02}
+.home .wrapin{max-width:1040px;width:100%}
+.home h1{font-size:clamp(38px,5.6vw,68px);font-weight:800;letter-spacing:-.03em;line-height:1.05}
 .home h1 .fire{background:var(--fire);background-size:200% auto;-webkit-background-clip:text;background-clip:text;
                color:transparent;animation:shimmer 6s linear infinite}
-.home .tag{font-size:clamp(17px,2.2vw,22px);color:#d2d2d7;max-width:720px;margin:16px auto 0;font-weight:500}
-.feats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:34px auto 0;text-align:left}
-.feat{display:block;background:#161617;border-radius:18px;padding:18px 20px;color:#f5f5f7;text-decoration:none!important;
-      transition:background .2s}
-.feat:hover{background:#222224}
-.feat b{display:block;font-size:17px;margin-bottom:4px}
+.home .tag{font-size:clamp(15px,1.6vw,18px);color:#a1a1a6;max-width:820px;margin:14px auto 0;line-height:1.5}
+.home .tag b{color:#f5f5f7}
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:26px auto 0;text-align:left}
+.tile{background:#121213;border:1px solid #232326;border-radius:14px;padding:12px 16px}
+.tile b{display:block;font-size:15px;margin-bottom:3px}
+.tile span{color:#a1a1a6;font-size:13.5px;line-height:1.42}
+.feats{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:12px auto 0;text-align:left}
+.feat{display:block;background:#1d1d1f;border-radius:16px;padding:14px 18px;color:#f5f5f7;text-decoration:none!important;transition:background .2s}
+.feat:hover{background:#2a2a2d}
+.feat b{display:block;font-size:16px;margin-bottom:3px}
 .feat b::after{content:" \203A";color:#f09819}
-.feat span{color:#a1a1a6;font-size:14.5px;line-height:1.45}
-.home .cta{margin-top:30px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-.home .meta{color:#86868b;font-size:13.5px;margin-top:22px}
-.home .meta a{color:#a1a1a6}
-@media(max-width:760px){
-  .home{align-items:flex-start;padding:26px 16px}
-  .feats{grid-template-columns:1fr;gap:8px;margin-top:22px}
-  .feat{padding:12px 16px}
-  .feat span{display:none}
-  .home .tag br{display:none}
-  .home .cta{margin-top:20px}
+.feat span{color:#a1a1a6;font-size:13.5px;line-height:1.42}
+.home .cta{margin-top:22px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+@media(max-width:900px){.tiles{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:601px) and (max-height:780px){.home{padding:14px 22px}.tiles{margin-top:18px}.home .cta{margin-top:16px}}
+@media(max-width:600px){
+  .home{align-items:flex-start;padding:22px 16px}
+  .feats{grid-template-columns:1fr;gap:8px}
+  .tiles{grid-template-columns:repeat(2,1fr);gap:8px;margin-top:18px}
+  .tile{padding:10px 12px}
+  .tile b{font-size:14px}
+  .tile span{font-size:12.5px;line-height:1.38}
+  .home .tag{font-size:14.5px}
   .home .cta .btn{padding:11px 20px;font-size:15px}
-}
-@media(max-width:760px) and (max-height:760px){
-  .home{padding:16px 16px}
-  .home .kicker{display:none}
-  .home h1{font-size:40px}
-  .home .tag{font-size:16px;margin-top:10px}
-  .feats{margin-top:16px;gap:6px}
-  .feat{padding:10px 16px}
-  .home .cta{margin-top:14px;gap:8px}
-  .home .meta{margin-top:12px;font-size:12.5px}
 }
 </style>
 </head>
@@ -71,10 +65,19 @@ body{background:#000}
 <header class="sn"><div class="sn-in"><a class="sn-brand" href="index.html">FireRed <span>Reforged</span></a><button class="sn-menu" type="button" aria-label="Menu" aria-expanded="false">&#9776;</button><div class="sn-links"><a href="index.html" class="on">Home</a><a href="changes.html">What's Different</a><a href="Walkthrough.html">Walkthrough</a><a href="Compendium.html">Pok&eacute;dex &amp; Data</a><a class="sn-cta" href="getit.html">Get It</a></div></div></header>
 
 <main class="home"><div class="wrapin">
-  <h1>Pokémon<br><span class="fire">FireRed Reforged</span></h1>
-  <p class="tag">The Kanto classic, rebuilt.</p>
+  <h1>Pokémon <span class="fire">FireRed Reforged</span></h1>
+  <p class="tag"><b>Same Kanto, same story.</b> A slight blend of Yellow and Red/Blue. Professor Oak gives you one of the three
+  starter Pokémon and your rival gets an Eevee. The main story through the Elite Four matches FireRed's, but the postgame adds many
+  additional twists and turns!</p>
+  <div class="tiles">
+    <div class="tile"><b>Trainer Teams</b><span>300+ trainer teams rebuilt, largely based on the ideology of Yellow Legacy by the SmithPlaysPokemon team.</span></div>
+    <div class="tile"><b>Wild Encounters</b><span>All wild encounters updated, again heavily inspired by Yellow Legacy's decisions. All 386 Pokémon are obtainable.</span></div>
+    <div class="tile"><b>Gym Order</b><span>Erika, Koga, Sabrina, and Blaine can be battled in any order. Their teams adjust based on the order you battle them.</span></div>
+    <div class="tile"><b>Level Curve</b><span>Levels climb smoothly with updated trainer teams.</span></div>
+    <div class="tile"><b>Meet the Ace</b><span>Every leader and Elite Four member stands beside their signature Pokémon.</span></div>
+    <div class="tile"><b>Following Pokémon</b><span>HeartGold/SoulSilver-style following Pokémon.</span></div>
+  </div>
   <div class="feats">
-    <a class="feat" href="changes.html#kanto"><b>Kanto, reforged</b><span>Rebuilt trainers including the rival and gym leaders, updated Pokémon learnsets, your lead Pokémon follows you, and more.</span></a>
     <a class="feat" href="changes.html#postgame"><b>Upgraded Postgame</b><span>Johto &amp; Hoenn leaders on the Johto Isles, gym rematches, Elite Four rematches, additional new trainers, and more.</span></a>
     <a class="feat" href="changes.html#modes"><b>Game Modes</b><span>Hard mode with enforced level caps and perma-death. A randomizer built in. An optional Pallet Town NPC who gives key supplies.</span></a>
   </div>
