@@ -7,147 +7,86 @@
 <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="apple-mobile-web-app-title" content="FireRed Reforged">
-<meta name="theme-color" content="#78180e">
+<meta name="theme-color" content="#000000">
 <title>Pokémon FireRed Reforged — The Kanto classic, rebuilt.</title>
 <link rel="stylesheet" href="site.css">
 <link rel="stylesheet" href="sitenav.css">
 <script>
-// Old single-page links (#kanto, #postgame, ...) now live on What's Different.
+// Old single-page links now live on What's Different or Get It.
 (function () {
-  var map = {story:'kanto', kanto:'kanto', engine:'engine', modes:'modes', nuzlocke:'modes',
-             qol:'qol', items:'qol', postgame:'postgame', johto:'postgame', rematch:'postgame'};
+  var map = {story:'changes.html#kanto', kanto:'changes.html#kanto', engine:'changes.html#engine',
+             modes:'changes.html#modes', nuzlocke:'changes.html#modes', qol:'changes.html#qol',
+             items:'changes.html#qol', postgame:'changes.html#postgame', johto:'changes.html#postgame',
+             rematch:'changes.html#postgame', getit:'getit.html', new:'getit.html#versions',
+             numbers:'changes.html'};
   var h = location.hash.slice(1);
-  if (map[h]) location.replace('changes.html#' + map[h]);
+  if (map[h]) location.replace(map[h]);
+  window.addEventListener('hashchange', function () { var k = location.hash.slice(1); if (map[k]) location.replace(map[k]); });
 })();
 </script>
 <script src="sitenav.js" defer></script>
+<style>
+body{background:#000}
+.home{min-height:calc(100vh - 53px);min-height:calc(100svh - 53px);display:flex;align-items:center;justify-content:center;
+      background:#000;color:#f5f5f7;text-align:center;padding:28px 22px}
+.home .wrapin{max-width:1000px;width:100%}
+.home .kicker{font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:#a1a1a6;margin-bottom:12px}
+.home h1{font-size:clamp(44px,7.2vw,88px);font-weight:800;letter-spacing:-.03em;line-height:1.02}
+.home h1 .fire{background:var(--fire);background-size:200% auto;-webkit-background-clip:text;background-clip:text;
+               color:transparent;animation:shimmer 6s linear infinite}
+.home .tag{font-size:clamp(17px,2.2vw,22px);color:#d2d2d7;max-width:720px;margin:16px auto 0;font-weight:500}
+.feats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:34px auto 0;text-align:left}
+.feat{display:block;background:#161617;border-radius:18px;padding:18px 20px;color:#f5f5f7;text-decoration:none!important;
+      transition:background .2s}
+.feat:hover{background:#222224}
+.feat b{display:block;font-size:17px;margin-bottom:4px}
+.feat b::after{content:" \203A";color:#f09819}
+.feat span{color:#a1a1a6;font-size:14.5px;line-height:1.45}
+.home .cta{margin-top:30px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.home .meta{color:#86868b;font-size:13.5px;margin-top:22px}
+.home .meta a{color:#a1a1a6}
+@media(max-width:760px){
+  .home{align-items:flex-start;padding:26px 16px}
+  .feats{grid-template-columns:1fr;gap:8px;margin-top:22px}
+  .feat{padding:12px 16px}
+  .feat span{display:none}
+  .home .tag br{display:none}
+  .home .cta{margin-top:20px}
+  .home .cta .btn{padding:11px 20px;font-size:15px}
+}
+@media(max-width:760px) and (max-height:760px){
+  .home{padding:16px 16px}
+  .home .kicker{display:none}
+  .home h1{font-size:40px}
+  .home .tag{font-size:16px;margin-top:10px}
+  .feats{margin-top:16px;gap:6px}
+  .feat{padding:10px 16px}
+  .home .cta{margin-top:14px;gap:8px}
+  .home .meta{margin-top:12px;font-size:12.5px}
+}
+</style>
 </head>
 <body data-page="home">
 
-<header class="sn"><div class="sn-in"><a class="sn-brand" href="index.html">FireRed <span>Reforged</span></a><button class="sn-menu" type="button" aria-label="Menu" aria-expanded="false">&#9776;</button><div class="sn-links"><a href="index.html" class="on">Home</a><a href="changes.html">What's Different</a><a href="Walkthrough.html">Walkthrough</a><a href="Compendium.html">Pok&eacute;dex &amp; Data</a><a class="sn-cta" href="index.html#getit">Get It</a></div></div></header>
+<header class="sn"><div class="sn-in"><a class="sn-brand" href="index.html">FireRed <span>Reforged</span></a><button class="sn-menu" type="button" aria-label="Menu" aria-expanded="false">&#9776;</button><div class="sn-links"><a href="index.html" class="on">Home</a><a href="changes.html">What's Different</a><a href="Walkthrough.html">Walkthrough</a><a href="Compendium.html">Pok&eacute;dex &amp; Data</a><a class="sn-cta" href="getit.html">Get It</a></div></div></header>
 
-<div class="hero">
+<main class="home"><div class="wrapin">
   <div class="kicker">A Legacy-series style ROM hack</div>
   <h1>Pokémon<br><span class="fire">FireRed Reforged</span></h1>
-  <p class="tag">The Kanto classic, rebuilt with twenty years of hindsight.<br>
-     Yellow Legacy's design. Emerald Legacy's balance. One Game Boy Advance cartridge.</p>
-  <p class="sub">Version 2.15 &middot; formerly FireRed Legacy &middot; distributed as a BPS patch &middot; fresh save required</p>
+  <p class="tag">The Kanto classic, rebuilt. <br>Yellow Legacy's design, Emerald Legacy's balance, all 386 Pokémon.</p>
+  <div class="feats">
+    <a class="feat" href="changes.html#kanto"><b>Kanto, redrawn</b><span>Rebuilt trainers and routes, a rival with an Eevee, and your partner walking behind you.</span></a>
+    <a class="feat" href="changes.html#postgame"><b>A real postgame</b><span>Johto &amp; Hoenn on the Sevii Islands, sixteen isle leaders, and a ladder to a Lv 100 Champion.</span></a>
+    <a class="feat" href="changes.html#modes"><b>Your rules</b><span>Hard mode level caps, Nuzlocke supplies, and a randomizer saved in your file.</span></a>
+  </div>
   <div class="cta">
-    <a class="btn solid" href="#getit">Get the patch</a>
-    <a class="btn ghost" href="changes.html">What's different</a>
+    <a class="btn solid" href="https://github.com/jsunaldo/Pokemon-FireRed-Reforged/releases/download/v2.15/FireRed_Reforged_v2.15.bps">Download v2.15</a>
+    <a class="btn ghost" href="getit.html">How to install</a>
     <a class="btn ghost" href="Walkthrough.html">Walkthrough</a>
   </div>
-</div>
+  <p class="meta">New in 2.15: choose which generations the randomizer uses &middot; <a href="getit.html#versions">All versions</a>
+  &middot; formerly FireRed Legacy &middot; <a href="getit.html#credits">Credits</a></p>
+</div></main>
 
-<section class="center">
-  <div class="in rv">
-    <div class="eyebrow o">The idea</div>
-    <h2>Same game. Better game.</h2>
-    <p class="lead">FireRed Reforged follows TheSmithPlays' Legacy trilogy: keep the Gen 3 soul and fix
-    everything else. Kanto's trainers, wild Pokémon and key items follow <b>Yellow Legacy</b>; every stat,
-    moveset and evolution follows <b>Emerald Legacy</b>.</p>
-    <div class="grid c3f">
-      <div class="card"><div class="big">151</div><h3>Kanto, as Yellow Legacy drew it</h3>
-        <p>Every Kanto Pokémon in one save, rebuilt trainers, a rival who raised an Eevee to beat you.</p>
-        <a class="more" href="changes.html#kanto">Story &amp; Kanto &rsaquo;</a></div>
-      <div class="card"><div class="big">386</div><h3>A postgame ladder</h3>
-        <p>Sevii 4–7 open into Johto &amp; Hoenn, sixteen Johto Isles leaders, and rematches up to a Lv 100 Champion.</p>
-        <a class="more" href="changes.html#postgame">Postgame &rsaquo;</a></div>
-      <div class="card"><div class="big">3</div><h3>Normal · Hard · Random</h3>
-        <p>Level caps and an item ban if you want them, and a built-in randomizer that lives in your save.</p>
-        <a class="more" href="changes.html#modes">Modes &rsaquo;</a></div>
-    </div>
-  </div>
-</section>
-
-<section class="dark" id="numbers">
-  <div class="in center rv">
-    <div class="eyebrow t">By the numbers</div>
-    <h2>Nothing left untouched.</h2>
-    <div class="stats c4s">
-      <div class="stat"><div class="n">386</div><div class="l">Pokémon obtainable, verified by script</div></div>
-      <div class="stat"><div class="n">763</div><div class="l">trainers, every roster accounted for</div></div>
-      <div class="stat"><div class="n">132</div><div class="l">moves rebalanced</div></div>
-      <div class="stat"><div class="n">13</div><div class="l">legendary encounters placed</div></div>
-      <div class="stat"><div class="n">90+</div><div class="l">wild maps redesigned</div></div>
-      <div class="stat"><div class="n">100+</div><div class="l">VS Seeker rematch teams rebuilt</div></div>
-      <div class="stat"><div class="n">22</div><div class="l">trade evolutions retired</div></div>
-      <div class="stat"><div class="n">0</div><div class="l">Pokémon requiring a link cable</div></div>
-    </div>
-  </div>
-</section>
-
-<section class="alt" id="new">
-  <div class="in center rv">
-    <div class="eyebrow g">What's new</div>
-    <h2>Version 2.15</h2>
-    <div class="card" style="margin-top:40px;max-width:860px;margin-left:auto;margin-right:auto">
-      <ul class="news">
-        <li><b>2.15</b> &mdash; Randomizer GENS choice; National Dex from the start when Gen 2/3 are in play; Oak's National Dex needs no catch count; gym rematches always use mixed teams.</li>
-        <li><b>2.14</b> &mdash; New Gen 3-style battle art for Nurse Joy, Officer Jenny and Janine.</li>
-        <li><b>2.13</b> &mdash; The secret postgame bosses follow the randomizer's Bosses switch, not the Trainers one.</li>
-      </ul>
-      <details class="older"><summary>Older versions</summary>
-      <ul class="news">
-        <li><b>2.12</b> &mdash; The Pok&eacute;mon beside the Champion is his real ace for that fight, randomized teams included. It used to always be an Eevee.</li>
-        <li><b>2.11</b> &mdash; The Supply Gentleman tops each item up to 999.</li>
-        <li><b>2.10</b> &mdash; Groudon, Ho-Oh, Kyogre, Lugia, Rayquaza, Steelix and Wailord follow you at full size.</li>
-        <li><b>2.9</b> &mdash; Fixed 17 garbled following sprites, including Weezing, Deoxys, Kadabra and Farfetch'd.</li>
-        <li><b>2.8</b> &mdash; Randomizer <b>EVERY SLOT</b> mode: every encounter, trainer Pok&eacute;mon and gift rolls on its own.</li>
-        <li><b>2.7</b> &mdash; Randomizer can shuffle item balls and hidden items.</li>
-        <li><b>2.6</b> &mdash; Oak's Lab shows the randomized starter each ball really holds.</li>
-        <li><b>2.5</b> &mdash; All 16 Johto Isles leaders got their own defeat, after-battle and rematch lines.</li>
-        <li><b>2.4</b> &mdash; Johto Isles leaders speak after you beat them.</li>
-        <li><b>2.3</b> &mdash; The Johto Isles circuit clears properly, opening the Tier 3 gyms and the final League.</li>
-      </ul>
-      </details>
-    </div>
-  </div>
-</section>
-
-<section id="getit">
-  <div class="in center rv">
-    <div class="eyebrow r">Get it</div>
-    <h2>Three steps to Kanto.</h2>
-    <div style="margin-top:30px">
-      <a class="btn solid" href="https://github.com/jsunaldo/Pokemon-FireRed-Reforged/releases/download/v2.15/FireRed_Reforged_v2.15.bps">Download v2.15 patch (.bps)</a>
-    </div>
-    <p class="footnote" style="margin-top:12px"><a href="https://github.com/jsunaldo/Pokemon-FireRed-Reforged/releases">All releases &amp; notes</a></p>
-    <div class="grid c3f">
-      <div class="card"><div class="big">1</div><h3>Verify your ROM</h3>
-        <p>You need a <b>Pokémon FireRed (USA) v1.0</b> ROM you own.<br>
-        sha1 <code>41cb23d8…e6e2fdc</code><br>crc32 <code>DD88761C</code></p></div>
-      <div class="card"><div class="big">2</div><h3>Apply the patch</h3>
-        <p>Use any BPS patcher — <a href="https://www.marcrobledo.com/RomPatcher.js/">Rom Patcher JS</a> in the
-        browser, Flips, or beat. The patch refuses a wrong base ROM. Patched crc32 <code>E1BB1C11</code>.</p></div>
-      <div class="card"><div class="big">3</div><h3>Start fresh</h3>
-        <p>Load it in your favorite GBA emulator or flash cart and start a <b>new save</b>. Pick your mode, decide whether to randomize.
-        Say hi to the Gentleman.</p></div>
-    </div>
-    <p class="footnote">FireRed Reforged is distributed only as a patch. No ROMs are included or shared.</p>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<footer><div class="in">
-  <p><b style="color:#f5f5f7">Pokémon FireRed Reforged</b> — a fan project, free forever, in the style of the Legacy series.</p>
-  <p style="margin-top:14px">Standing on the shoulders of: <a href="https://pret.github.io/">pret</a> (the pokefirered
-  decompilation) · <a href="https://github.com/cRz-Shadows/Pokemon_Yellow_Legacy">Pokémon Yellow Legacy</a> and
-  <a href="https://github.com/cRz-Shadows/Pokemon_Emerald_Legacy">Pokémon Emerald Legacy</a> by TheSmithPlays,
-  cRz Shadows &amp; teams — the design this hack ports and the philosophy it follows.</p>
-  <p style="margin-top:14px">Battle sprites: Nurse Joy and Officer Jenny by
-  <a href="https://www.deviantart.com/ginzhio">ginzhio</a>; Janine by
-  <a href="https://www.deviantart.com/sacredgbc123">Sacredgbc123</a>.</p>
-  <p style="margin-top:14px">Pokémon is © Nintendo / Creatures Inc. / GAME FREAK inc. This is a non-commercial
-  fan work, not affiliated with or endorsed by Nintendo.</p>
-</div></footer>
-
-<script>
-const io = new IntersectionObserver(es => es.forEach(e => {
-  if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); }
-}), { threshold: 0.12 });
-document.querySelectorAll('.rv').forEach(el => io.observe(el));
-</script>
 </body>
 </html>

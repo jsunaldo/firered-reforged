@@ -111,3 +111,6 @@ footer a{color:#a1a1a6}
 @media(max-width:640px){section{padding:66px 18px}}
 @media(max-width:640px){.hero{padding:64px 18px 56px}.pagehead{padding:40px 18px 22px}}
 @media(max-width:600px){td:first-child{white-space:normal}td,th{padding:9px 10px;font-size:14px}}
+/* 3-item rows: 3 across, else 1 (never 2+1) */
+.grid.c3s{grid-template-columns:repeat(3,1fr)}
+@media(max-width:900px){.grid.c3s{grid-template-columns:1fr}}
