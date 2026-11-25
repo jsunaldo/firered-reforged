@@ -1,47 +1,48 @@
 <!doctype html><html><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>FireRed Reforged ChangeDoc</title><style>
-body{font-family:-apple-system,Segoe UI,Roboto,sans-serif;margin:0;background:#f4f4f8;color:#222}
+<title>FireRed Reforged ChangeDoc</title><style>/* darkified */
+
+body{font-family:-apple-system,Segoe UI,Roboto,sans-serif;margin:0;background:#07070b;color:#dddddd}
 .wrap{max-width:1100px;margin:auto;padding:16px}
 nav{position:sticky;top:102px;background:#3b4cca;padding:10px 16px;z-index:5}
-nav a{color:#fff;margin-right:18px;text-decoration:none;font-weight:600}
+nav a{color:#ffffff;margin-right:18px;text-decoration:none;font-weight:600}
 h1{border-bottom:3px solid #3b4cca;padding-bottom:4px;margin-top:40px}
 h2{margin:28px 0 8px}
 .battle{display:flex;gap:14px;align-items:flex-start}
-.side{flex:1;background:#fff;border:1px solid #ddd;border-radius:8px;padding:10px}
+.side{flex:1;background:#1c1c1c;border:1px solid #222222;border-radius:8px;padding:10px}
 @media(max-width:700px){.battle{flex-direction:column}.side{width:100%;min-width:0;box-sizing:border-box}table{display:block;overflow-x:auto;max-width:100%}}
-.side>h3{margin:2px 0 8px;font-size:14px;text-transform:uppercase;letter-spacing:1px;color:#666}
+.side>h3{margin:2px 0 8px;font-size:14px;text-transform:uppercase;letter-spacing:1px;color:#999999}
 .team{display:flex;flex-wrap:wrap;gap:8px}
-.mon{background:#f8f8fc;border:1px solid #e0e0e8;border-radius:8px;padding:8px;width:150px;text-align:center}
+.mon{background:#030307;border:1px solid #17171f;border-radius:8px;padding:8px;width:150px;text-align:center}
 .mon img{width:64px;height:64px;image-rendering:pixelated}
 .monname{font-weight:700}
-.lv{color:#666;font-weight:400}
-.chip{display:inline-block;color:#fff;font-size:11px;border-radius:8px;padding:1px 8px;margin:2px 1px;text-shadow:0 1px 1px rgba(0,0,0,.4)}
+.lv{color:#999999;font-weight:400}
+.chip{display:inline-block;color:#ffffff;font-size:11px;border-radius:8px;padding:1px 8px;margin:2px 1px;text-shadow:0 1px 1px rgba(0,0,0,.4)}
 .moves{list-style:none;margin:6px 0 0;padding:0;text-align:left;font-size:13px}
-.moves li{padding:2px 4px;border-top:1px solid #eee}
+.moves li{padding:2px 4px;border-top:1px solid #111111}
 .dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px}
-.sub{font-size:12px;color:#555;margin:4px 0}
+.sub{font-size:12px;color:#aaaaaa;margin:4px 0}
 table{border-collapse:collapse;font-size:13px;margin:4px 0}
-td,th{border:1px solid #ddd;padding:2px 8px;text-align:left}
+td,th{border:1px solid #222222;padding:2px 8px;text-align:left}
 h4{margin:10px 0 2px}
 /* difference highlighting */
 .entry{margin-bottom:10px}
-.changes{background:#fff8e1;border:1px solid #ffe082;border-left:5px solid #ffb300;
+.changes{background:#171308;border:1px solid #ffe082;border-left:5px solid #ffb300;
          border-radius:6px;padding:7px 12px;margin:4px 0 8px;font-size:13px;line-height:1.7}
 .changes b{color:#a36a00}
 .changes .ins{color:#1b7f3b;font-weight:600}
 .changes .del{color:#b3261e;text-decoration:line-through;opacity:.8}
-.changes .arrow{color:#888;margin:0 3px}
-.nochange .changes{background:#f1f3f4;border-color:#dadce0;border-left-color:#9aa0a6;color:#5f6368}
+.changes .arrow{color:#777777;margin:0 3px}
+.nochange .changes{background:#0b0d0e;border-color:#1f2125;border-left-color:#9aa0a6;color:#979ba0}
 .diff{background:#fff3b0;border-radius:4px;font-weight:700;padding:0 2px}
 .badge{display:inline-block;background:#ffb300;color:#3a2a00;font-size:11px;font-weight:700;
        border-radius:10px;padding:1px 9px;margin-left:8px;vertical-align:middle}
-.badge.zero{background:#cfd8dc;color:#546e7a}
-.toolbar{position:sticky;top:140px;background:#eef0fb;border-bottom:1px solid #c5cae9;
+.badge.zero{background:#232c30;color:#859fab}
+.toolbar{position:sticky;top:140px;background:#050710;border-bottom:1px solid #c5cae9;
          padding:7px 16px;z-index:4;font-size:14px}
 .toolbar label{cursor:pointer;font-weight:600;color:#3b4cca}
 body.diffonly .nochange{display:none}
-</style><link rel="stylesheet" href="sitenav.css"><script src="sitenav.js" defer></script></head><body data-page="changedoc">
+</style><link rel="stylesheet" href="sitenav.css?v=20261125e"><script src="sitenav.js?v=20261125e" defer></script><style>body{background:#000!important;color:#e0e0e2}a{color:#2997ff}</style></head><body data-page="changedoc">
 <header class="sn"><div class="sn-in"><a class="sn-brand" href="index.html">FireRed <span>Reforged</span></a><button class="sn-menu" type="button" aria-label="Menu" aria-expanded="false">&#9776;</button><div class="sn-links"><a href="index.html">Home</a><a href="changes.html">Overview</a><a href="Walkthrough.html">Walkthrough</a><a href="Compendium.html" class="on">Pok&eacute;dex &amp; Data</a><a class="sn-cta" href="getit.html">Get It</a></div></div></header><div class="dn"><div class="dn-in"><a href="Compendium.html#trainers">Trainers</a><a href="Compendium.html#rematches">Rematches</a><a href="Compendium.html#find">Find a Pok&eacute;mon</a><a href="Compendium.html#wild">Locations</a><a href="Compendium.html#dex">Pok&eacute;dex</a><a href="Compendium.html#evos">Evolutions</a><a href="NuzlockeRoutes.html">Nuzlocke Routes</a><a href="ChangeDoc.html" class="on">Full ChangeDoc</a></div></div>
 <nav><a href="#bosses">Boss Battles</a><a href="#wild">Wild Encounters</a>
 <a href="#dex">Pok&eacute;dex</a><a href="#moves">Moves</a>
