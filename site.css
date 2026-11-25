@@ -114,3 +114,5 @@ footer a{color:#a1a1a6}
 /* 3-item rows: 3 across, else 1 (never 2+1) */
 .grid.c3s{grid-template-columns:repeat(3,1fr)}
 @media(max-width:900px){.grid.c3s{grid-template-columns:1fr}}
+/* 2-column mode: an odd last card spans the row instead of sitting alone */
+@media(min-width:601px) and (max-width:1100px){.grid.c4>.card:last-child:nth-child(odd){grid-column:1/-1}}
