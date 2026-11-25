@@ -19,7 +19,9 @@
 .subtabs button.on{background:#0071e3;border-color:#0071e3;color:#fff}
 .subpanel{display:none}.subpanel.on{display:block}
 .subnote{color:#6e6e73;font-size:15.5px;max-width:860px}
-.tys{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.tys{display:grid;grid-template-columns:repeat(var(--cols,4),max-content);gap:6px;margin-top:12px}
+@media(max-width:700px){.tys{display:flex;flex-wrap:wrap}}
+.ty{text-align:center}
 .ty{display:inline-block;padding:4px 12px;border-radius:980px;font-size:13.5px;font-weight:700}
 .card p.uses{font-size:14px;margin-top:-2px}.card p.eg{font-size:13.5px;margin-top:12px}
 .sublabel{font-size:20px;font-weight:700;margin:48px 0 0;color:#1d1d1f}.panel section{padding-top:36px}.panel .in>.grid:first-child,.panel .in>.card:first-child{margin-top:0!important}.sublabel+table{margin-top:16px}.sublabel+.grid{margin-top:16px}.panel .in>.sublabel:first-child{margin-top:0}</style>
@@ -49,8 +51,8 @@
     <div class="subpanel on" data-sub="split">
       <p class="subnote">Like the original Gen 3 games, a move is physical or special based on its <b>type</b>, not the move itself.</p>
       <div class="grid c2f" style="margin-top:18px">
-        <div class="card"><h3>Physical</h3><div class="tys"><span class="ty" style="background:#a8a878;color:#1d1d1f">Normal</span><span class="ty" style="background:#c03028;color:#fff">Fighting</span><span class="ty" style="background:#a890f0;color:#1d1d1f">Flying</span><span class="ty" style="background:#a040a0;color:#fff">Poison</span><span class="ty" style="background:#e0c068;color:#1d1d1f">Ground</span><span class="ty" style="background:#b8a038;color:#1d1d1f">Rock</span><span class="ty" style="background:#a8b820;color:#1d1d1f">Bug</span><span class="ty" style="background:#b8b8d0;color:#1d1d1f">Steel</span><span class="ty" style="background:#705848;color:#fff">Dark *</span></div></div>
-        <div class="card"><h3>Special</h3><div class="tys"><span class="ty" style="background:#f08030;color:#fff">Fire</span><span class="ty" style="background:#6890f0;color:#fff">Water</span><span class="ty" style="background:#78c850;color:#fff">Grass</span><span class="ty" style="background:#f8d030;color:#1d1d1f">Electric</span><span class="ty" style="background:#f85888;color:#fff">Psychic</span><span class="ty" style="background:#98d8d8;color:#1d1d1f">Ice</span><span class="ty" style="background:#7038f8;color:#fff">Dragon</span><span class="ty" style="background:#705898;color:#fff">Ghost *</span></div></div>
+        <div class="card"><h3>Physical</h3><div class="tys" style="--cols:5"><span class="ty" style="background:#a8a878;color:#1d1d1f">Normal</span><span class="ty" style="background:#c03028;color:#fff">Fighting</span><span class="ty" style="background:#a890f0;color:#1d1d1f">Flying</span><span class="ty" style="background:#a040a0;color:#fff">Poison</span><span class="ty" style="background:#e0c068;color:#1d1d1f">Ground</span><span class="ty" style="background:#b8a038;color:#1d1d1f">Rock</span><span class="ty" style="background:#a8b820;color:#1d1d1f">Bug</span><span class="ty" style="background:#b8b8d0;color:#1d1d1f">Steel</span><span class="ty" style="background:#705848;color:#fff">Dark *</span></div></div>
+        <div class="card"><h3>Special</h3><div class="tys" style="--cols:4"><span class="ty" style="background:#f08030;color:#fff">Fire</span><span class="ty" style="background:#6890f0;color:#fff">Water</span><span class="ty" style="background:#78c850;color:#fff">Grass</span><span class="ty" style="background:#f8d030;color:#1d1d1f">Electric</span><span class="ty" style="background:#f85888;color:#fff">Psychic</span><span class="ty" style="background:#98d8d8;color:#1d1d1f">Ice</span><span class="ty" style="background:#7038f8;color:#fff">Dragon</span><span class="ty" style="background:#705898;color:#fff">Ghost *</span></div></div>
       </div>
       <p class="subnote" style="margin-top:14px">* Dark and Ghost have changed compared to the original games.</p>
     </div>
