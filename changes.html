@@ -12,7 +12,17 @@
 <link rel="stylesheet" href="site.css">
 <link rel="stylesheet" href="sitenav.css">
 <script src="sitenav.js" defer></script>
-<style>.sublabel{font-size:20px;font-weight:700;margin:48px 0 0;color:#1d1d1f}.panel section{padding-top:36px}.panel .in>.grid:first-child,.panel .in>.card:first-child{margin-top:0!important}.sublabel+table{margin-top:16px}.sublabel+.grid{margin-top:16px}.panel .in>.sublabel:first-child{margin-top:0}</style>
+<style>.subtabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
+.subtabs button{border:1px solid #d2d2d7;background:#fff;cursor:pointer;padding:7px 15px;border-radius:980px;
+  font:600 14px -apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,sans-serif;color:#1d1d1f}
+.subtabs button:hover{background:#f2f2f5}
+.subtabs button.on{background:#0071e3;border-color:#0071e3;color:#fff}
+.subpanel{display:none}.subpanel.on{display:block}
+.subnote{color:#6e6e73;font-size:15.5px;max-width:860px}
+.tys{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.ty{display:inline-block;padding:4px 12px;border-radius:980px;font-size:13.5px;font-weight:700}
+.card p.uses{font-size:14px;margin-top:-2px}.card p.eg{font-size:13.5px;margin-top:12px}
+.sublabel{font-size:20px;font-weight:700;margin:48px 0 0;color:#1d1d1f}.panel section{padding-top:36px}.panel .in>.grid:first-child,.panel .in>.card:first-child{margin-top:0!important}.sublabel+table{margin-top:16px}.sublabel+.grid{margin-top:16px}.panel .in>.sublabel:first-child{margin-top:0}</style>
 </head>
 <body data-page="changes">
 
@@ -28,20 +38,51 @@
 <!-- BATTLE ENGINE -->
 <div class="panel on" id="p-engine"><section>
   <div class="in">
-    
-    <div class="grid c3f">
-      <div class="card"><h3>Ghost is special. Dark is physical.</h3>
-        <p>Shadow Ball runs off Sp. Atk, Crunch off Attack. Every other type keeps its Gen 3 side.</p></div>
-      <div class="card"><h3>Weather that matters</h3>
-        <p>Hail gives Ice types 1.5&times; Defense. Sandstorm gives Rock types (and Sand Veil) 1.5&times; Sp. Def. Blizzard never misses in hail.</p></div>
+    <div class="subtabs" data-group="engine">
+      <button type="button" data-sub="split" class="on">Physical/Special Split</button>
+      <button type="button" data-sub="weather">Weather</button>
+      <button type="button" data-sub="moves">Moves</button>
+      <button type="button" data-sub="abilities">Abilities</button>
+      <button type="button" data-sub="evos">Evolutions</button>
+    </div>
+
+    <div class="subpanel on" data-sub="split">
+      <p class="subnote">Like the original Gen 3 games, a move is physical or special based on its <b>type</b>, not the move itself.
+      One change from Emerald Legacy: <b>Ghost and Dark swap sides</b> (marked *).</p>
+      <div class="grid c2f" style="margin-top:18px">
+        <div class="card"><h3>Physical</h3><p class="uses">Uses Attack vs. Defense</p><div class="tys"><span class="ty" style="background:#a8a878;color:#1d1d1f">Normal</span><span class="ty" style="background:#c03028;color:#fff">Fighting</span><span class="ty" style="background:#a890f0;color:#1d1d1f">Flying</span><span class="ty" style="background:#a040a0;color:#fff">Poison</span><span class="ty" style="background:#e0c068;color:#1d1d1f">Ground</span><span class="ty" style="background:#b8a038;color:#1d1d1f">Rock</span><span class="ty" style="background:#a8b820;color:#1d1d1f">Bug</span><span class="ty" style="background:#b8b8d0;color:#1d1d1f">Steel</span><span class="ty" style="background:#705848;color:#fff">Dark *</span></div>
+          <p class="eg">e.g. Crunch, Faint Attack (Dark)</p></div>
+        <div class="card"><h3>Special</h3><p class="uses">Uses Sp. Atk vs. Sp. Def</p><div class="tys"><span class="ty" style="background:#f08030;color:#fff">Fire</span><span class="ty" style="background:#6890f0;color:#fff">Water</span><span class="ty" style="background:#78c850;color:#fff">Grass</span><span class="ty" style="background:#f8d030;color:#1d1d1f">Electric</span><span class="ty" style="background:#f85888;color:#fff">Psychic</span><span class="ty" style="background:#98d8d8;color:#1d1d1f">Ice</span><span class="ty" style="background:#7038f8;color:#fff">Dragon</span><span class="ty" style="background:#705898;color:#fff">Ghost *</span></div>
+          <p class="eg">e.g. Shadow Ball, Night Shade (Ghost)</p></div>
+      </div>
+      <p class="subnote" style="margin-top:16px">The split also decides Hustle (lowers physical accuracy), Counter (returns physical hits) and Mirror Coat (returns special hits).</p>
+    </div>
+
+    <div class="subpanel" data-sub="weather">
+      <div class="grid c2f" style="margin-top:0">
+        <div class="card"><h3>Hail</h3><p>Ice types get 1.5&times; Defense. Blizzard never misses.</p></div>
+        <div class="card"><h3>Sandstorm</h3><p>Rock types, and Pokémon with Sand Veil, get 1.5&times; Sp. Def.</p></div>
+      </div>
+    </div>
+
+    <div class="subpanel" data-sub="moves">
       <div class="card"><h3>132 moves rebalanced</h3>
-        <p>Emerald Legacy's full move pass — powers, accuracies, PP and effects. Every change is in the ChangeDoc.</p></div>
+        <p>Emerald Legacy's full move pass — powers, accuracies, PP and effects. Every change is listed in the
+        <a href="ChangeDoc.html#moves">Full ChangeDoc</a> and the <a href="Compendium.html#moves">Moves list</a>.</p></div>
+    </div>
+
+    <div class="subpanel" data-sub="abilities">
       <div class="card"><h3>Abilities with teeth</h3>
-        <p>Magma Armor shrugs off Water moves. Leaf Blade and Sky Attack crit high. Stats and abilities follow Emerald Legacy.</p></div>
-      <div class="card"><h3>Trade evolutions, retired</h3>
-        <p>Kadabra and Haunter evolve at Lv 42, Machoke and Graveler at 38. Metal Coat, King's Rock, Dragon Scale and friends are used from the bag.</p></div>
-      <div class="card"><h3>Cross-gen evolutions, day one</h3>
-        <p>Crobat, Steelix, Scizor, Slowking, Politoed, Porygon2, Blissey, Espeon, Umbreon and the rest are obtainable in the main game.</p></div>
+        <p>Magma Armor shrugs off Water moves. Leaf Blade and Sky Attack crit high. Species stats and abilities follow Emerald Legacy.</p></div>
+    </div>
+
+    <div class="subpanel" data-sub="evos">
+      <p class="subnote">No trades needed. Trade evolutions now happen by level, or by using the item from the bag like a stone.
+      Every item is sold at the Celadon Dept. Store, 4th floor. Cross-gen evolutions (Crobat, Blissey, Espeon, Umbreon and more) work from day one.</p>
+      <table>
+        <tr><th>Pokémon</th><th>Evolves into</th><th>How</th></tr>
+        <tr><td>Kadabra</td><td>Alakazam</td><td>Level 42</td></tr><tr><td>Machoke</td><td>Machamp</td><td>Level 38</td></tr><tr><td>Graveler</td><td>Golem</td><td>Level 38</td></tr><tr><td>Haunter</td><td>Gengar</td><td>Level 42</td></tr><tr><td>Onix</td><td>Steelix</td><td>Metal Coat</td></tr><tr><td>Scyther</td><td>Scizor</td><td>Metal Coat</td></tr><tr><td>Poliwhirl</td><td>Politoed</td><td>King's Rock</td></tr><tr><td>Slowpoke</td><td>Slowking</td><td>King's Rock</td></tr><tr><td>Seadra</td><td>Kingdra</td><td>Dragon Scale</td></tr><tr><td>Porygon</td><td>Porygon2</td><td>Up-Grade</td></tr><tr><td>Clamperl</td><td>Huntail / Gorebyss</td><td>Deep Sea Tooth / Scale</td></tr><tr><td>Feebas</td><td>Milotic</td><td>Level 35</td></tr>
+      </table>
     </div>
   </div>
 </section></div>
@@ -176,6 +217,18 @@
   window.addEventListener('hashchange', function () { show(location.hash.slice(1), false); });
   show(location.hash.slice(1), false);
 })();
+</script>
+
+<script>
+document.querySelectorAll('.subtabs').forEach(function (bar) {
+  var panel = bar.parentNode;
+  bar.querySelectorAll('button').forEach(function (b) {
+    b.addEventListener('click', function () {
+      bar.querySelectorAll('button').forEach(function (x) { x.classList.toggle('on', x === b); });
+      panel.querySelectorAll('.subpanel').forEach(function (p) { p.classList.toggle('on', p.dataset.sub === b.dataset.sub); });
+    });
+  });
+});
 </script>
 </body>
 </html>
