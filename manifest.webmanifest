@@ -1,7 +1,7 @@
 {
-  "name": "Pokémon FireRed Legacy",
-  "short_name": "FireRed Legacy",
-  "description": "FireRed Legacy ROM hack — site, walkthrough, and compendium",
+  "name": "Pokémon FireRed Reforged",
+  "short_name": "FireRed Reforged",
+  "description": "FireRed Reforged ROM hack — site, walkthrough, and compendium",
   "start_url": "./",
   "display": "standalone",
   "background_color": "#1a1816",
