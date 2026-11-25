@@ -55,7 +55,8 @@ ul.wx li:first-child{border-top:0}
 
 <div class="tabs" role="tablist"><div class="in">
   <button type="button" data-tab="engine" class="on">Battle Engine</button>
-  <button type="button" data-tab="qol">Items &amp; QoL</button>
+  <button type="button" data-tab="items">Items</button>
+  <button type="button" data-tab="qol">QoL</button>
   <button type="button" data-tab="modes">Modes</button>
   <button type="button" data-tab="postgame">Postgame</button>
 </div></div>
@@ -109,19 +110,10 @@ ul.wx li:first-child{border-top:0}
   </div></div>
 </section></div>
 
-<!-- ITEMS & QOL -->
-<div class="panel" id="p-qol"><section>
+<!-- ITEMS -->
+<div class="panel" id="p-items"><section>
   <div class="in ovwrap"><nav class="ovnav" aria-label="Sections"></nav><div class="ovmain">
-    
-    <section class="ovs" id="ov-iv-ev-viewer" data-nav="IV &amp; EV viewer"><h2>IV &amp; EV viewer</h2><div class="ovbody"><p>On the summary Skills page, press A: stats &rarr; IVs &rarr; EVs, nature-colored.</p></div></section>
-      <section class="ovs" id="ov-repel-again" data-nav="Repel, again?"><h2>Repel, again?</h2><div class="ovbody"><p>When a Repel wears off, the game offers another of the same kind.</p></div></section>
-      <section class="ovs" id="ov-instant-text" data-nav="Instant text"><h2>Instant text</h2><div class="ovbody"><p>FAST prints whole messages in a single frame. SLOW and MID are untouched.</p></div></section>
-      <section class="ovs" id="ov-run-everywhere" data-nav="Run everywhere"><h2>Run everywhere</h2><div class="ovbody"><p>Running Shoes work indoors.</p></div></section>
-      <section class="ovs" id="ov-forgettable-hms-reusable-tms" data-nav="Forgettable HMs, reusable TMs"><h2>Forgettable HMs, reusable TMs</h2><div class="ovbody"><p>HMs come off whenever you like, and TMs are never used up.</p></div></section>
-      <section class="ovs" id="ov-cut-trees-cut-for-good" data-nav="Cut trees, cut for good"><h2>Cut trees, cut for good</h2><div class="ovbody"><p>Cut trees never grow back, and Fuchsia's pointless ones are gone.</p></div></section>
-      <section class="ovs" id="ov-league-tm-shop" data-nav="League TM shop"><h2>League TM shop</h2><div class="ovbody"><p>Indigo Plateau sells Ice Beam, Thunderbolt, Flamethrower, Giga Drain, SolarBeam, Brick Break and Rock Tomb.</p></div></section>
-      <section class="ovs" id="ov-no-dead-quests" data-nav="No dead quests"><h2>No dead quests</h2><div class="ovbody"><p>The Exp. Share aide gives freely, and custom events are safe from Quest Log replays.</p></div></section>
-    <section class="ovs" id="ov-items-key-items" data-nav="Items &amp; Key Items"><h2>Items &amp; Key Items</h2>
+    <section class="ovs" id="ov-items-key-items" data-nav="Key Items &amp; Gifts"><h2>Key Items &amp; Gifts</h2>
     <table>
       <tr><th>Item</th><th>Where</th><th>What changed</th></tr>
       <tr><td>Old Rod</td><td>Viridian City Mart</td><td>Moved up from Vermilion — fishing before badge one</td></tr>
@@ -135,6 +127,23 @@ ul.wx li:first-child{border-top:0}
       <tr><td>Evolution items</td><td>Celadon Dept. Store 4F, Two Island</td><td>Every stone and trade-evo item; incenses on Two Island post-Champion</td></tr>
       <tr><td>All marts</td><td>Everywhere</td><td>Stock matches Yellow Legacy, translated to Gen 3</td></tr>
     </table></section>
+    <section class="ovs" id="ov-league-tm-shop" data-nav="League TM shop"><h2>League TM shop</h2><div class="ovbody"><p>Indigo Plateau sells Ice Beam, Thunderbolt, Flamethrower, Giga Drain, SolarBeam, Brick Break and Rock Tomb.</p></div></section>
+  </div></div>
+</section></div>
+
+<!-- QOL -->
+<div class="panel" id="p-qol"><section>
+  <div class="in ovwrap"><nav class="ovnav" aria-label="Sections"></nav><div class="ovmain">
+    
+    <section class="ovs" id="ov-iv-ev-viewer" data-nav="IV &amp; EV viewer"><h2>IV &amp; EV viewer</h2><div class="ovbody"><p>On the summary Skills page, press A: stats &rarr; IVs &rarr; EVs, nature-colored.</p></div></section>
+      <section class="ovs" id="ov-repel-again" data-nav="Repel, again?"><h2>Repel, again?</h2><div class="ovbody"><p>When a Repel wears off, the game offers another of the same kind.</p></div></section>
+      <section class="ovs" id="ov-instant-text" data-nav="Instant text"><h2>Instant text</h2><div class="ovbody"><p>FAST prints whole messages in a single frame. SLOW and MID are untouched.</p></div></section>
+      <section class="ovs" id="ov-run-everywhere" data-nav="Run everywhere"><h2>Run everywhere</h2><div class="ovbody"><p>Running Shoes work indoors.</p></div></section>
+      <section class="ovs" id="ov-forgettable-hms-reusable-tms" data-nav="Forgettable HMs, reusable TMs"><h2>Forgettable HMs, reusable TMs</h2><div class="ovbody"><p>HMs come off whenever you like, and TMs are never used up.</p></div></section>
+      <section class="ovs" id="ov-cut-trees-cut-for-good" data-nav="Cut trees, cut for good"><h2>Cut trees, cut for good</h2><div class="ovbody"><p>Cut trees never grow back, and Fuchsia's pointless ones are gone.</p></div></section>
+      
+      <section class="ovs" id="ov-no-dead-quests" data-nav="No dead quests"><h2>No dead quests</h2><div class="ovbody"><p>The Exp. Share aide gives freely, and custom events are safe from Quest Log replays.</p></div></section>
+    
     
   </div></div>
 </section></div>
@@ -213,7 +222,7 @@ ul.wx li:first-child{border-top:0}
 
 <script>
 (function () {
-  var alias = {johto:'postgame', rematch:'postgame', nuzlocke:'modes', items:'qol'};
+  var alias = {johto:'postgame', rematch:'postgame', nuzlocke:'modes'};
   var h0 = location.hash.slice(1);
   if (h0 === 'kanto' || h0 === 'story') { location.replace('index.html'); return; }
   var btns = document.querySelectorAll('.tabs button');
