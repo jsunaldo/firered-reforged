@@ -182,20 +182,21 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!m.hidden)c
 .qimgs.n3{grid-template-columns:repeat(3,minmax(0,1fr))}
 .qimgs figure{margin:0}
 .qimgs img{display:block;width:100%;height:auto;image-rendering:pixelated;border-radius:10px;border:1px solid #2c2c30;background:#000}
-.qimgs figcaption{font-size:13px;color:#8c8c91;margin-top:6px}
+.qimgs figcaption{font-size:13px;color:#8c8c91;margin-top:6px;line-height:1.5}
+.qg{color:#7ed957;font-weight:600}.qp{color:#d07ad8;font-weight:600}
 @media(max-width:640px){.qimgs.n3{grid-template-columns:1fr}}
 </style>
 <div class="panel" id="p-qol"><section>
   <div class="in ovwrap"><nav class="ovnav" aria-label="Sections"></nav><div class="ovmain">
     
-    <section class="ovs" id="ov-iv-ev-viewer" data-nav="IV &amp; EV Viewer"><h2>IV &amp; EV Viewer</h2><div class="ovbody"><p>On the summary Skills page, press A: stats &rarr; IVs &rarr; EVs, nature-colored.</p><div class="qimgs n3"><figure><img src="img/qol/sum_stats.png" alt="Summary Skills page, stats colored by nature" loading="lazy"><figcaption>Stats, colored by nature</figcaption></figure><figure><img src="img/qol/sum_iv.png" alt="Summary Skills page showing IVs" loading="lazy"><figcaption>Press A: IVs</figcaption></figure><figure><img src="img/qol/sum_ev.png" alt="Summary Skills page showing EVs" loading="lazy"><figcaption>Press A again: EVs</figcaption></figure></div></div></section>
+    <section class="ovs" id="ov-iv-ev-viewer" data-nav="IV &amp; EV Viewer"><h2>IV &amp; EV Viewer</h2><div class="ovbody"><p>On the summary Skills page, press A: stats &rarr; IVs &rarr; EVs.</p><div class="qimgs n3"><figure><img src="img/qol/sum_stats.png" alt="Summary Skills page, stats colored by nature" loading="lazy"><figcaption>Stats, colored by nature<br><span class="qg">Green</span>: raised 10% by nature<br><span class="qp">Purple</span>: lowered 10% by nature</figcaption></figure><figure><img src="img/qol/sum_iv.png" alt="Summary Skills page showing IVs" loading="lazy"><figcaption>Press A: IVs</figcaption></figure><figure><img src="img/qol/sum_ev.png" alt="Summary Skills page showing EVs" loading="lazy"><figcaption>Press A again: EVs</figcaption></figure></div></div></section>
       <section class="ovs" id="ov-repel-again" data-nav="Repel Ask"><h2>Repel Ask</h2><div class="ovbody"><p>When a Repel wears off, the game offers another of the same kind.</p><div class="qimgs n1"><figure><img src="img/qol/repel.png" alt="Repel wore off prompt: Use another? Yes / No" loading="lazy"><figcaption>The prompt when a Repel runs out</figcaption></figure></div></div></section>
-      <section class="ovs" id="ov-instant-text" data-nav="Instant Text"><h2>Instant Text</h2><div class="ovbody"><p>FAST prints whole messages in a single frame. SLOW and MID are untouched.</p></div></section>
+      <section class="ovs" id="ov-instant-text" data-nav="Instant Text"><h2>Instant Text</h2><div class="ovbody"><p>FAST prints whole messages in a single frame. SLOW and MID are untouched.</p><div class="qimgs n2"><figure><img src="img/qol/options_fast.png" alt="Option menu with TEXT SPEED set to FAST" loading="lazy"><figcaption>TEXT SPEED: FAST</figcaption></figure><figure><img src="img/qol/fast_text.png" alt="A full two-line message shown at once" loading="lazy"><figcaption>The whole message appears at once</figcaption></figure></div></div></section>
       <section class="ovs" id="ov-run-everywhere" data-nav="Running"><h2>Running</h2><div class="ovbody"><p>Running Shoes work indoors.</p><div class="qimgs n1"><figure><img src="img/qol/running.png" alt="Player running inside a Pokémon Center" loading="lazy"><figcaption>Running inside a Pokémon Center</figcaption></figure></div></div></section>
       <section class="ovs" id="ov-forgettable-hms-reusable-tms" data-nav="TMs/HMs"><h2>TMs/HMs</h2><div class="ovbody"><p>HMs come off whenever you like, and TMs are never used up.</p><div class="qimgs n1"><figure><img src="img/qol/tmcase_after.png" alt="TM Case still holding Ice Beam after teaching it" loading="lazy"><figcaption>Still ×1 after teaching Ice Beam</figcaption></figure></div></div></section>
       <section class="ovs" id="ov-cut-trees-cut-for-good" data-nav="Cut Trees"><h2>Cut Trees</h2><div class="ovbody"><p>Cut trees never grow back, and Fuchsia's pointless ones are gone.</p><div class="qimgs n2"><figure><img src="img/qol/cut_before.png" alt="Fuchsia City in FireRed with four cut trees" loading="lazy"><figcaption>FireRed: four cut trees</figcaption></figure><figure><img src="img/qol/cut_after.png" alt="Fuchsia City in Reforged with no cut trees" loading="lazy"><figcaption>Reforged: gone</figcaption></figure></div></div></section>
       
-      <section class="ovs" id="ov-fast-play-items" data-nav="Fast Play Items"><h2>Fast Play Items</h2><div class="ovbody"><p>The Supply Gentleman by Pallet Town's south fence tops up Rare Candies, Master Balls, Full Restores, Max Repels and Max Elixirs to 999 each, as often as you like. (Hard mode's caps still apply to candies.)</p><div class="qimgs n1"><figure><img src="img/qol/supply.png" alt="Supply Gentleman menu: Rare Candy, Master Ball, Full Restore, Max Repel, Max Elixir x999" loading="lazy"><figcaption>The Supply Gentleman's menu</figcaption></figure></div></div></section>
+      <section class="ovs" id="ov-fast-play-items" data-nav="Fast Play Items"><h2>Fast Play Items</h2><div class="ovbody"><p>The Supply Gentleman by Pallet Town's south fence tops up Rare Candies, Master Balls, Full Restores, Max Repels and Max Elixirs to 999 each, as often as you like. (Hard mode's caps still apply to candies.) Rather go without? Switch <b>SUPPLY MAN</b> off on the randomizer screen and he's gone for that save.</p><div class="qimgs n1"><figure><img src="img/qol/supply.png" alt="Supply Gentleman menu: Rare Candy, Master Ball, Full Restore, Max Repel, Max Elixir x999" loading="lazy"><figcaption>The Supply Gentleman's menu</figcaption></figure></div></div></section>
       <section class="ovs" id="ov-no-dead-quests" data-nav="Quests"><h2>Quests</h2><div class="ovbody"><p>The Exp. Share aide gives freely, and custom events are safe from Quest Log replays.</p><div class="qimgs n1"><figure><img src="img/qol/expshare.png" alt="The aide hands over the Exp. Share" loading="lazy"><figcaption>The aide hands it straight over</figcaption></figure></div></div></section>
     
     
@@ -218,7 +219,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!m.hidden)c
     </table>
     </section>
     <section class="ovs" id="ov-randomizer" data-nav="Randomizer"><h2>Randomizer</h2>
-    <div class="grid c4">
+    <div class="grid c3s">
       <div class="card"><h3>Wild Pok&eacute;mon</h3><p>Every grass, cave, surf and fishing slot. By default a one-for-one swap: if Pidgey becomes Growlithe, every Pidgey is a Growlithe.</p></div>
       <div class="card"><h3>Every slot</h3><p>Switch on <b>EVERY SLOT</b> and each slot, trainer Pok&eacute;mon and gift rolls on its own.</p></div>
       <div class="card"><h3>Trainers &amp; Bosses</h3><p>Two switches: route trainers, and the bosses — leaders, Elite Four, Champion, rival, Giovanni, Oak, Janine, isle leaders and secret bosses.</p></div>
@@ -226,6 +227,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!m.hidden)c
       <div class="card"><h3>Legendary statics</h3><p>Every walk-up legend and the roamer. Leave <b>Wild Legends</b> off and legends only swap among themselves.</p></div>
       <div class="card"><h3>Field items</h3><p>Item balls and hidden items, fixed per spot. Key items and HMs never move.</p></div>
       <div class="card"><h3>Generations &amp; strength</h3><p>Draw from Gen 1, 2, 3 or any mix — Gen 2 or 3 gives you the National Dex from the start. Optional similar-strength matching.</p></div>
+      <div class="card"><h3>Supply Gentleman</h3><p><b>SUPPLY MAN</b> on (default) keeps Pallet Town's free-item helper; off removes him from the save.</p></div>
       <div class="card"><h3>On your Trainer Card</h3><p><b>RANDOM</b>, the 8-digit seed and a letter per setting, so you always know which world you're in.</p></div>
     </div>
     </section>
