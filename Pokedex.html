@@ -206,7 +206,7 @@ table.mini td:first-child{color:#777777;width:36px}
 .dpx{position:absolute;top:10px;right:12px;width:34px;height:34px;border-radius:50%;border:0;background:#111113;color:#eeeeee;font-size:22px;line-height:1;cursor:pointer}
 .dpk{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:#e8590c;font-weight:700}
 .dpd h3{font-size:24px;margin:4px 0 14px;font-weight:800}
-.dp-learn{width:min(760px,calc(100vw - 32px))}.dp-learn #dpc{display:flex;flex-direction:column;gap:18px}.mvw{overflow-x:auto}.lst{min-width:460px}.lst td{vertical-align:middle}.lst .mvn{font-weight:600;color:#dddddd}.lst .nr{text-align:right}.lst .cs{display:none}@media(max-width:640px){.lst{min-width:0;font-size:10.5px}.lst td,.lst th{padding:3px 1.5px}.lst .chip{font-size:8px;padding:1px 3px;margin:0;letter-spacing:0}.lst .cl{display:none}.lst .cs{display:inline}.lst [class^=cat-]{padding:1px 2px;font-size:8.5px}.dpd{padding:18px 10px;width:calc(100vw - 16px)}.lst{table-layout:fixed;width:100%}.lst .nr,.lst td:first-child{white-space:nowrap}.lst:not(.eggt) td:first-child{padding-right:5px}.lst .mvn{hyphens:auto}.lst:not(.eggt) th:nth-child(1){width:12%}.lst:not(.eggt) th:nth-child(2){width:28%}.lst:not(.eggt) th:nth-child(3){width:12%}.lst:not(.eggt) th:nth-child(4){width:12%}.lst:not(.eggt) th:nth-child(5){width:12%}.lst:not(.eggt) th:nth-child(6){width:13%}.lst:not(.eggt) th:nth-child(7){width:11%}.lst.eggt th:nth-child(1){width:36%}.lst.eggt th:nth-child(2){width:13%}.lst.eggt th:nth-child(3){width:13%}.lst.eggt th:nth-child(4){width:12%}.lst.eggt th:nth-child(5){width:14%}.lst.eggt th:nth-child(6){width:12%}}
+.dp-learn{width:min(760px,calc(100vw - 32px))}.dp-learn #dpc{display:flex;flex-direction:column;gap:18px}.mvw{overflow-x:auto}.lst{min-width:460px}.lst td{vertical-align:middle}.lst .mvn{font-weight:600;color:#dddddd}.lst .nr{text-align:right}.tyb{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;color:#ffffff;font-size:11px;font-weight:800;vertical-align:middle}.tyb img{width:13px;height:13px}.lst .cs{display:none}@media(max-width:640px){.lst{min-width:0;font-size:10.5px}.lst td,.lst th{padding:3px 1.5px}.lst .chip{font-size:8px;padding:1px 3px;margin:0;letter-spacing:0}.lst .cl{display:none}.lst .cs{display:inline}.lst [class^=cat-]{padding:1px 2px;font-size:8.5px}.dpd{padding:18px 10px;width:calc(100vw - 16px)}.lst{table-layout:fixed;width:100%}.lst .nr,.lst td:first-child{white-space:nowrap}.lst:not(.eggt) td:first-child{padding-right:5px}.lst .mvn{hyphens:auto}.lst:not(.eggt) th:nth-child(1){width:12%}.lst:not(.eggt) th:nth-child(2){width:28%}.lst:not(.eggt) th:nth-child(3){width:12%}.lst:not(.eggt) th:nth-child(4){width:12%}.lst:not(.eggt) th:nth-child(5){width:12%}.lst:not(.eggt) th:nth-child(6){width:13%}.lst:not(.eggt) th:nth-child(7){width:11%}.lst.eggt th:nth-child(1){width:36%}.lst.eggt th:nth-child(2){width:13%}.lst.eggt th:nth-child(3){width:13%}.lst.eggt th:nth-child(4){width:12%}.lst.eggt th:nth-child(5){width:14%}.lst.eggt th:nth-child(6){width:12%}}
 .dpsec h4{font-size:14px;margin:0 0 6px}.dpsec h4 span{color:#777777;font-weight:600;margin-left:4px}
 .dpnone{color:#777777;font-size:13px;margin:0}
 .dp-evo .evfam{padding:4px 0}@media(min-width:641px){.dp-evo .evn{width:76px}.dp-evo .evn img{width:56px;height:56px}.dp-evo .evn span{font-size:12px}.dp-evo .eva{width:84px}.dp-evo .eva small{font-size:11px}.dp-evo .eva i{font-size:20px}.dp-evo .evk{gap:10px}}
@@ -250,6 +250,9 @@ function locs(name){
   return "<table class='mini dploc'><tr><th>Area</th><th>Method</th><th>Odds</th><th>Level</th></tr>"+e.locs.map(function(l){
     return "<tr><td>"+esc(l[0])+"</td><td>"+esc(l[1])+"</td><td>"+l[2]+"%</td><td>Lv "+esc(l[3])+"</td></tr>";}).join('')+"</table>";
 }
+var TYI={BUG:1,DARK:1,DRAGON:1,ELECTRIC:1,FIGHTING:1,FIRE:1,FLYING:1,GHOST:1,GRASS:1,GROUND:1,ICE:1,NORMAL:1,POISON:1,PSYCHIC:1,ROCK:1,STEEL:1,WATER:1};
+function tyb(t){var n=t.charAt(0)+t.slice(1).toLowerCase();
+  return "<span class='tyb' title='"+n+"' style='background:"+(TYPEC[t]||'#888')+"'>"+(TYI[t]?"<img src='img/types/"+t.toLowerCase()+".svg' alt='"+n+"'>":"?")+"</span>";}
 function mtable(rows,first){
   if(!rows.length)return "<p class='dpnone'>None</p>";
   var h="<div class='mvw'><table class='mini lst"+(first?"":" eggt")+"'><tr>"+(first?"<th>"+first+"</th>":"")
@@ -257,8 +260,7 @@ function mtable(rows,first){
   rows.forEach(function(r){var m=MOVES[r[1]];if(!m)return;
     var cat=m[2]==='P'?'Physical':(m[2]==='S'?'Special':'Status');
     var cls=cat==='Status'?'cat-status':(cat==='Physical'?'cat-physical':'cat-special');
-    h+="<tr>"+(first?"<td>"+r[0]+"</td>":"")+"<td class='mvn'>"+m[0]+"</td><td><span class='chip' style='background:"+(TYPEC[m[1]]||'#888')+"'>"
-      +"<span class='cl'>"+m[1].charAt(0)+m[1].slice(1).toLowerCase()+"</span><span class='cs'>"+m[1].slice(0,3)+"</span></span></td><td><span class='"+cls+"'><span class='cl'>"+cat+"</span><span class='cs'>"+cat.slice(0,4)+"</span></span></td>"
+    h+="<tr>"+(first?"<td>"+r[0]+"</td>":"")+"<td class='mvn'>"+m[0]+"</td><td>"+tyb(m[1])+"</td><td><span class='"+cls+"'><span class='cl'>"+cat+"</span><span class='cs'>"+cat.slice(0,4)+"</span></span></td>"
       +"<td class='nr'>"+(m[3]||'&mdash;')+"</td><td class='nr'>"+(m[4]?m[4]+"<span class='cl'>%</span>":'&mdash;')+"</td><td class='nr'>"+(m[5]||'&mdash;')+"</td></tr>";});
   return h+"</table></div>";
 }
